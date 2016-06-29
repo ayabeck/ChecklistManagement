@@ -1,0 +1,31 @@
+%h1 Listing checklists
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Checker
+      %th Start at
+      %th Due at
+      %th Submitter
+      %th Submit at
+      %th
+      %th
+      %th
+
+  %tbody
+    - @checklists.each do |checklist|
+      %tr
+        %td= checklist.title
+        %td= checklist.checker
+        %td= checklist.start_at
+        %td= checklist.due_at
+        %td= checklist.submitter
+        %td= checklist.submit_at
+        %td= link_to 'Show', checklist
+        %td= link_to 'Edit', edit_checklist_path(checklist)
+        %td= link_to 'Destroy', checklist, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Checklist', new_checklist_path

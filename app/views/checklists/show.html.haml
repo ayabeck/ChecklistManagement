@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @checklist.title
+%p
+  %b Checker:
+  = @checklist.checker
+%p
+  %b Start at:
+  = @checklist.start_at
+%p
+  %b Due at:
+  = @checklist.due_at
+%p
+  %b Submitter:
+  = @checklist.submitter
+%p
+  %b Submit at:
+  = @checklist.submit_at
+
+= link_to 'Edit', edit_checklist_path(@checklist)
+\|
+= link_to 'Back', checklists_path
