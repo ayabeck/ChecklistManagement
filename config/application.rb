@@ -31,5 +31,11 @@ module ChecklistManagement
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    # Customize scaffold to my specific need
+    config.generators do |g|
+      g.assets   false
+      g.helper   false
+      g.jbuilder false
+    end
   end
 end
