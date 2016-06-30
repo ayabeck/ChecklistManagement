@@ -1,24 +1,28 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @checklist.title
-%p
-  %b Checker:
-  = @checklist.checker
-%p
-  %b Start at:
-  = @checklist.start_at
-%p
-  %b Due at:
-  = @checklist.due_at
-%p
-  %b Submitter:
-  = @checklist.submitter
-%p
-  %b Submit at:
-  = @checklist.submit_at
+.row
+  %ol.breadcrumb
+    %li= link_to 'チェックリスト実施状況', checklists_path
+    %li.active 詳細
+  .col-sm-9
+    %h3= @checklist.title
+  .col-sm-3
+    %p.text-right
+      %button.btn.btn-default{ type: 'button' } 一時保存
+      %button.btn.btn-default{ type: 'button' } 提出
 
-= link_to 'Edit', edit_checklist_path(@checklist)
-\|
-= link_to 'Back', checklists_path
+.row
+  .col-sm-6.col-xs-6
+    %dl.dl-horizontal
+      %dt  担当者
+      %dd= @checklist.checker
+      %dt  開始日時
+      %dd= @checklist.start_at
+      %dt  期限
+      %dd= @checklist.due_at
+  .col-sm-6.col-xs-6
+    %dl.dl-horizontal
+      %dt  提出者
+      %dd= @checklist.submitter
+      %dt  提出日時
+      %dd= @checklist.submit_at
