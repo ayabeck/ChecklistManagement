@@ -1,0 +1,20 @@
+%nav.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{ type: 'button', data: { toggle: 'collapse', target: '#bs-navbar-collapse' }, "aria-expanded": 'false' }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to icon('check-circle', 'Checklist Management'), root_path, { id: 'logo', class: 'navbar-brand' }
+    #bs-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{ href: '#', role: 'button', data: { toggle: 'dropdown' },  aria: { haspopup: 'true', expanded: 'false' } }
+            アクション #{ icon('caret-down') }
+          %ul.dropdown-menu
+            %li= link_to '実施状況を確認する', checklists_path
+            %li= link_to '作成する', '#'
+            %li= link_to 'レポート', '#'
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'ヘルプ', '#'
