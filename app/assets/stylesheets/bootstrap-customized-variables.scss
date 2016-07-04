@@ -1,0 +1,31 @@
+// Define my color palette
+$logo-color:   #B32034;
+$base-color:   #FFF;
+$accent-color: #006EA5;
+$base-text-color: darken($base-color, 70%);
+$nav-main-color:  $base-color;
+
+// Customized variables
+// Typography
+$font-size-base: 16px;
+// Scaffolding
+$body-bg:    $base-color;
+$text-color: $base-text-color;
+$link-color: $accent-color;
+// Buttons
+$btn-default-bg:     $base-color;
+$btn-default-border: $accent-color;
+$btn-default-color:  $accent-color;
+// Navbar
+$navbar-default-bg:             $nav-main-color;
+$navbar-default-link-color:     $base-text-color;
+$navbar-default-link-hover-bg:  $nav-main-color - 10;
+$navbar-default-link-active-bg: $nav-main-color - 10;
+$navbar-default-brand-color:       $logo-color;
+$navbar-default-brand-hover-color: $navbar-default-brand-color;
+$navbar-default-toggle-hover-bg:     $nav-main-color - 10;
+$navbar-default-toggle-border-color: $navbar-default-toggle-hover-bg - 10;
+// Breadcrumbs
+$breadcrumb-bg: $base-color;
+// Type
+$hr-border:  darken($base-color, 10%);

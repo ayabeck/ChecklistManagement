@@ -1,0 +1,39 @@
+// Customized classes
+// Buttons
+.btn-group {
+  margin: 5px auto;
+}
+.btn {
+  padding: 5px 12px;
+}
+.btn-default {
+  &:hover, &:active:hover, &.active, &.active:hover {
+    background-color: $btn-default-color;
+    color:            $btn-default-bg;
+  }
+}
+// Navbar
+.navbar {
+  border-bottom: 2px solid $navbar-default-border;
+}
+.navbar-static-top {
+  margin-bottom: 0;
+}
+// Breadcrumb
+.breadcrumb {
+  margin-bottom: 0;
+}
+// Footer
+.footer {
+  background-color: lighten($gray-base, 60.0%);
+  color: $base-color;
+  a, a:hover {
+    color: $base-color;
+  }
+}
+
+// Utility classes of Bootstrap4-alpha
+// Spacing
+.m-t-0 {
+  margin-top: 0 !important;
+}
