@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629133425) do
+ActiveRecord::Schema.define(version: 20160705003358) do
+
+  create_table "checklist_templates", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "checklists_count"
+    t.string   "creator"
+    t.string   "updater"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "checklists", force: :cascade do |t|
     t.string   "title"

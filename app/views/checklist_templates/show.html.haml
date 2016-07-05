@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @checklist_template.title
+%p
+  %b Description:
+  = @checklist_template.description
+%p
+  %b Checklists count:
+  = @checklist_template.checklists_count
+%p
+  %b Creator:
+  = @checklist_template.creator
+%p
+  %b Updater:
+  = @checklist_template.updater
+
+= link_to 'Edit', edit_checklist_template_path(@checklist_template)
+\|
+= link_to 'Back', checklist_templates_path

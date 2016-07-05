@@ -1,0 +1,29 @@
+%h1 Listing checklist_templates
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Checklists count
+      %th Creator
+      %th Updater
+      %th
+      %th
+      %th
+
+  %tbody
+    - @checklist_templates.each do |checklist_template|
+      %tr
+        %td= checklist_template.title
+        %td= checklist_template.description
+        %td= checklist_template.checklists_count
+        %td= checklist_template.creator
+        %td= checklist_template.updater
+        %td= link_to 'Show', checklist_template
+        %td= link_to 'Edit', edit_checklist_template_path(checklist_template)
+        %td= link_to 'Destroy', checklist_template, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Checklist template', new_checklist_template_path
