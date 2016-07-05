@@ -7,7 +7,7 @@
   padding: 5px 12px;
 }
 .btn-default {
-  &:hover, &:active:hover, &.active, &.active:hover {
+  &:hover, &:active, &:active:hover, &.active, &.active:hover {
     background-color: $btn-default-color;
     color:            $btn-default-bg;
   }
