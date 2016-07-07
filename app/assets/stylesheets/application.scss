@@ -7,4 +7,24 @@
 @import "font-awesome";
 @import "sticky-footer";
 
-#logo { letter-spacing: -1px; }
+// Customize Tag
+hr {
+  margin: 10px auto;
+}
+th {
+  white-space: nowrap;
+}
+
+// Define my style
+#logo {
+  letter-spacing: -1px;
+}
+.link-button-group {
+  margin-top: 2px;
+}
+.page-title {
+  margin-top: 8px;
+}
+.status {
+  color: $assort-color;
+}

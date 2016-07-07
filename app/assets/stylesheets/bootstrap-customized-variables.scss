@@ -1,7 +1,8 @@
 // Define my color palette
-$logo-color:   #B32034;
 $base-color:   #FFF;
+$main-color:   #B32034;
 $accent-color: #006EA5;
+$assort-color: #008348;
 $base-text-color: darken($base-color, 70%);
 $nav-main-color:  $base-color;
 
@@ -21,11 +22,13 @@ $navbar-default-bg:             $nav-main-color;
 $navbar-default-link-color:     $base-text-color;
 $navbar-default-link-hover-bg:  $nav-main-color - 10;
 $navbar-default-link-active-bg: $nav-main-color - 10;
-$navbar-default-brand-color:       $logo-color;
+$navbar-default-brand-color:       $main-color;
 $navbar-default-brand-hover-color: $navbar-default-brand-color;
 $navbar-default-toggle-hover-bg:     $nav-main-color - 10;
 $navbar-default-toggle-border-color: $navbar-default-toggle-hover-bg - 10;
 // Breadcrumbs
-$breadcrumb-bg: $base-color;
+$breadcrumb-bg:           $base-color;
+$breadcrumb-active-color: $base-text-color;
+$breadcrumb-padding-horizontal: 0;
 // Type
 $hr-border:  darken($base-color, 10%);
