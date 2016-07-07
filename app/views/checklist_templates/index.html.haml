@@ -1,29 +1,31 @@
-%h1 Listing checklist_templates
+%p#notice= notice
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th Checklists count
-      %th Creator
-      %th Updater
-      %th
-      %th
-      %th
+.row
+  .col-xs-7
+    %ol.breadcrumb
+      %li.active テンプレート
+  .col-xs-5
+    .text-right.link-button-group
+      = link_to '新規作成', new_checklist_template_path, { role: 'button', class: 'btn btn-default' }
 
-  %tbody
-    - @checklist_templates.each do |checklist_template|
+.table-responsive
+  %table.table.table-striped
+    %thead
       %tr
-        %td= checklist_template.title
-        %td= checklist_template.description
-        %td= checklist_template.checklists_count
-        %td= checklist_template.creator
-        %td= checklist_template.updater
-        %td= link_to 'Show', checklist_template
-        %td= link_to 'Edit', edit_checklist_template_path(checklist_template)
-        %td= link_to 'Destroy', checklist_template, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Checklist template', new_checklist_template_path
+        %th
+        %th ID
+        %th タイトル
+        %th 説明
+        %th 更新日時
+        %th 更新者
+        %th 実施件数
+    %tbody
+      - @checklist_templates.each do |checklist_template|
+        %tr
+          %td.text-nowrap= link_to '詳細', checklist_template
+          %td.text-right= checklist_template.id
+          %td= checklist_template.title
+          %td= truncate checklist_template.description, length: 30
+          %td.text-nowrap= checklist_template.updated_at
+          %td= checklist_template.updater
+          %td.text-right= checklist_template.checklists_count

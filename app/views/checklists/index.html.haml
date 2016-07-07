@@ -1,9 +1,15 @@
-%h3 チェックリスト実施状況
+%p#notice= notice
 
-.btn-group{ role: 'group', "aria-label": '...' }
-  %button.btn.btn-default.active{ type: 'button' } すべて
-  %button.btn.btn-default{ type: 'button' } 提出済み
-  %button.btn.btn-default{ type: 'button' } 未提出
+.row
+  .col-xs-7
+    %ol.breadcrumb
+      %li.active チェックリスト
+
+.text-center
+  .btn-group{ role: 'group', "aria-label": '...' }
+    %button.btn.btn-default.active{ type: 'button' } すべて
+    %button.btn.btn-default{ type: 'button' } 提出済み
+    %button.btn.btn-default{ type: 'button' } 未提出
 
 .table-responsive
   %table.table.table-striped
@@ -12,18 +18,17 @@
         %th
         %th ID
         %th タイトル
-        %th 担当者
         %th 開始日時
         %th 期限
+        %th 担当者
         %th ステータス
     %tbody
       - @checklists.each do |checklist|
         %tr
-          %td= link_to '詳細', checklist
-          %td= checklist.id
-          %td= checklist.title
-          %td= checklist.checker
+          %td.text-nowrap= link_to '詳細', checklist
+          %td.text-right= checklist.id
+          %td= truncate checklist.title, length: 30
           %td= checklist.start_at
           %td= checklist.due_at
-          %td= icon 'check-circle', '提出済み'
-
+          %td= checklist.checker
+          %td.text-nowrap= icon 'check-circle status', '提出済み'

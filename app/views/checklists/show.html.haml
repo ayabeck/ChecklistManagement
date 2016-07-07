@@ -1,28 +1,31 @@
 %p#notice= notice
 
 .row
-  %ol.breadcrumb
-    %li= link_to 'チェックリスト実施状況', checklists_path
-    %li.active 詳細
-  .col-sm-9
-    %h3.m-t-0= @checklist.title
-  .col-sm-3
-    %p.text-right
-      %button.btn.btn-default{ type: 'button' } 一時保存
-      %button.btn.btn-default{ type: 'button' } 提出
+  .col-xs-7
+    %ol.breadcrumb
+      %li= link_to 'チェックリスト', checklists_path
+      %li.active 詳細
+  .col-xs-5
+    .text-right.link-button-group
+      = link_to '保存', '#', { role: 'button', class: 'btn btn-default' }
+      = link_to '提出', '#', { role: 'button', class: 'btn btn-default' }
+  .col-xs-12
+    %h4.page-title= @checklist.title
 
 .row
-  .col-sm-6.col-xs-6
+  .col-xs-6
     %dl.dl-horizontal
-      %dt  担当者
-      %dd= @checklist.checker
       %dt  開始日時
       %dd= @checklist.start_at
       %dt  期限
       %dd= @checklist.due_at
-  .col-sm-6.col-xs-6
+      %dt  担当者
+      %dd= @checklist.checker
+  .col-xs-6
     %dl.dl-horizontal
-      %dt  提出者
-      %dd= @checklist.submitter
       %dt  提出日時
       %dd= @checklist.submit_at
+      %dt  提出者
+      %dd= @checklist.submitter
+
+%hr

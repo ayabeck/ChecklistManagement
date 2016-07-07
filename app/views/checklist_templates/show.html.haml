@@ -1,21 +1,34 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @checklist_template.title
-%p
-  %b Description:
-  = @checklist_template.description
-%p
-  %b Checklists count:
-  = @checklist_template.checklists_count
-%p
-  %b Creator:
-  = @checklist_template.creator
-%p
-  %b Updater:
-  = @checklist_template.updater
+.row
+  .col-xs-6
+    %ol.breadcrumb
+      %li= link_to 'テンプレート', checklist_templates_path
+      %li.active 詳細
+  .col-xs-6
+    .text-right.link-button-group
+      = link_to '編集', edit_checklist_template_path(@checklist_template), { role: 'button', class: 'btn btn-default' }
+      = link_to '割り当て', '#', { role: 'button', class: 'btn btn-default' }
+  .col-xs-12
+    %h4.page-title= @checklist_template.title
 
-= link_to 'Edit', edit_checklist_template_path(@checklist_template)
-\|
-= link_to 'Back', checklist_templates_path
+.row
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt  更新日時
+      %dd= @checklist_template.updated_at
+      %dt  更新者
+      %dd= @checklist_template.updater
+      %dt  実施件数
+      %dd= @checklist_template.checklists_count
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt  作成日時
+      %dd= @checklist_template.created_at
+      %dt  作成者
+      %dd= @checklist_template.creator
+  .col-xs-12
+    .panel.panel-default
+      .panel-body= @checklist_template.description
+
+%hr
