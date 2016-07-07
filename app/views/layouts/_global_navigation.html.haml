@@ -11,10 +11,10 @@
       %ul.nav.navbar-nav
         %li.dropdown
           %a.dropdown-toggle{ href: '#', role: 'button', data: { toggle: 'dropdown' },  aria: { haspopup: 'true', expanded: 'false' } }
-            アクション #{ icon('caret-down') }
+            カテゴリ #{ icon('caret-down') }
           %ul.dropdown-menu
-            %li= link_to '実施状況を確認する', checklists_path
-            %li= link_to '作成する', '#'
-            %li= link_to 'レポート', '#'
+            %li= link_to 'テンプレート',   checklist_templates_path
+            %li= link_to 'チェックリスト', checklists_path
+            %li= link_to 'レポート',       '#'
       %ul.nav.navbar-nav.navbar-right
         %li= link_to 'ヘルプ', '#'
