@@ -8,9 +8,13 @@
       = link_to '編集', edit_checklist_template_path(@checklist_template), { role: 'button', class: 'btn btn-default' }
       = link_to '割り当て', '#', { role: 'button', class: 'btn btn-default' }
   .col-xs-12
-    %h4.page-title= @checklist_template.title
+    .m-t-0 ID #{ @checklist_template.id }
+    %h4.m-t-0= @checklist_template.title
 
 .row
+  .col-xs-12
+    .panel.panel-default
+      .panel-body= @checklist_template.description
   .col-xs-6
     %dl.dl-horizontal
       %dt  更新日時
@@ -25,8 +29,5 @@
       %dd= @checklist_template.created_at
       %dt  作成者
       %dd= @checklist_template.creator
-  .col-xs-12
-    .panel.panel-default
-      .panel-body= @checklist_template.description
 
 %hr

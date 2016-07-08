@@ -8,7 +8,8 @@
       = link_to '保存', '#', { role: 'button', class: 'btn btn-default' }
       = link_to '提出', '#', { role: 'button', class: 'btn btn-default' }
   .col-xs-12
-    %h4.page-title= @checklist.title
+    .m-t-0 ID #{ @checklist.id }
+    %h4.m-t-0= @checklist.title
 
 .row
   .col-xs-6
