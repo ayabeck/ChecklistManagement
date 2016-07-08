@@ -10,5 +10,6 @@
   %body
     = render 'layouts/global_navigation'
     .container
+      = render 'layouts/flash_messages', flash: flash
       = yield
     = render 'layouts/footer'

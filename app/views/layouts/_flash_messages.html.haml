@@ -1,0 +1,7 @@
+- flash.each do |name, msg|
+  - alert_type = { success: 'alert-success', notice: 'alert-info', alert: 'alert-warning', error: 'alert-danger' }
+  - contextual_class = alert_type.fetch(name.to_sym, name.to_s)
+  .alert.alert-dismissible{ class: contextual_class, role: 'alert' }
+    %button.close{ type: 'button', 'data-dismiss': 'alert', 'aria-label': 'Close' }
+      %span{ 'aria-hidden': 'true' } &times;
+    = msg

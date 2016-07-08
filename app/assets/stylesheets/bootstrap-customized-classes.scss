@@ -17,7 +17,7 @@
   border-bottom: 2px solid $navbar-default-border;
 }
 .navbar-static-top {
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 // Breadcrumb
 .breadcrumb {
@@ -38,6 +38,10 @@
   a, a:hover {
     color: $base-color;
   }
+}
+// Alert
+.alert {
+  margin-bottom: 15px;
 }
 
 // Utility classes of Bootstrap4-alpha
