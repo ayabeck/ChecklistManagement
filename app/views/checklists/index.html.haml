@@ -2,6 +2,9 @@
   .col-xs-7
     %ol.breadcrumb
       %li.active チェックリスト
+  .col-xs-12
+    .page-header
+      %h3 チェックリスト一覧
 
 .text-center
   .btn-group{ role: 'group', "aria-label": '...' }
@@ -13,18 +16,19 @@
   %table.table.table-striped
     %thead
       %tr
-        %th
-        %th ID
+        %th アクション
         %th タイトル
-        %th 開始日時
+        %th 開始
         %th 期限
         %th 担当者
         %th ステータス
     %tbody
       - @checklists.each do |checklist|
         %tr
-          %td.text-nowrap= link_to '詳細', checklist
-          %td.text-right= checklist.id
+          %td.text-nowrap
+            = link_to '詳細', checklist
+            \|
+            = link_to '削除', checklist, method: :delete, data: { confirm: 'Are you sure?' }
           %td= truncate checklist.title, length: 30
           %td= checklist.start_at
           %td= checklist.due_at

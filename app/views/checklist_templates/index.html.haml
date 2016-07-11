@@ -3,27 +3,31 @@
     %ol.breadcrumb
       %li.active テンプレート
   .col-xs-5
-    .text-right.link-button-group
+    .text-right
       = link_to '新規作成', new_checklist_template_path, { role: 'button', class: 'btn btn-default' }
+  .col-xs-12
+    .page-header
+      %h3 テンプレート一覧
 
 .table-responsive
   %table.table.table-striped
     %thead
       %tr
-        %th
-        %th ID
+        %th アクション
         %th タイトル
         %th 説明
-        %th 更新日時
+        %th 実施数
+        %th 更新日
         %th 更新者
-        %th 実施件数
     %tbody
       - @checklist_templates.each do |checklist_template|
         %tr
-          %td.text-nowrap= link_to '詳細', checklist_template
-          %td.text-right= checklist_template.id
+          %td.text-nowrap
+            = link_to '詳細', checklist_template
+            \|
+            = link_to '削除', checklist_template, method: :delete, data: { confirm: 'Are you sure?' }
           %td= checklist_template.title
           %td= truncate checklist_template.description, length: 30
-          %td.text-nowrap= checklist_template.updated_at
-          %td= checklist_template.updater
           %td.text-right= checklist_template.checklists_count
+          %td= checklist_template.updated_at
+          %td= checklist_template.updater

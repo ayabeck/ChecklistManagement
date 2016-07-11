@@ -1,33 +1,36 @@
 .row
-  .col-xs-6
+  .col-xs-7
     %ol.breadcrumb
       %li= link_to 'テンプレート', checklist_templates_path
       %li.active 詳細
-  .col-xs-6
+  .col-xs-5
     .text-right.link-button-group
-      = link_to '編集', edit_checklist_template_path(@checklist_template), { role: 'button', class: 'btn btn-default' }
-      = link_to '割り当て', '#', { role: 'button', class: 'btn btn-default' }
+      = link_to '実施', '#', { role: 'button', class: 'btn btn-default' }
   .col-xs-12
-    .m-t-0 ID #{ @checklist_template.id }
-    %h4.m-t-0= @checklist_template.title
+    .page-header
+      %h3
+        = @checklist_template.title
+        %small= link_to '編集', edit_checklist_template_path(@checklist_template)
 
 .row
-  .col-xs-12
-    .panel.panel-default
-      .panel-body= @checklist_template.description
   .col-xs-6
     %dl.dl-horizontal
-      %dt  更新日時
-      %dd= @checklist_template.updated_at
-      %dt  更新者
-      %dd= @checklist_template.updater
-      %dt  実施件数
+      %dt  テンプレート番号
+      %dd= @checklist_template.id
+      %dt  実施数
       %dd= @checklist_template.checklists_count
   .col-xs-6
     %dl.dl-horizontal
-      %dt  作成日時
+      %dt  作成日
       %dd= @checklist_template.created_at
-      %dt  作成者
-      %dd= @checklist_template.creator
+      %dt.hidden-xs  作成者
+      %dd.hidden-xs= @checklist_template.creator
+      %dt  更新日
+      %dd= @checklist_template.updated_at
+      %dt.hidden-xs  更新者
+      %dd.hidden-xs= @checklist_template.updater
+  .col-xs-12
+    .panel.panel-default
+      .panel-body= @checklist_template.description
 
 %hr

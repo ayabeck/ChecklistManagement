@@ -4,17 +4,21 @@
       %li= link_to 'チェックリスト', checklists_path
       %li.active 詳細
   .col-xs-5
-    .text-right.link-button-group
+    .text-right
       = link_to '保存', '#', { role: 'button', class: 'btn btn-default' }
       = link_to '提出', '#', { role: 'button', class: 'btn btn-default' }
   .col-xs-12
-    .m-t-0 ID #{ @checklist.id }
-    %h4.m-t-0= @checklist.title
+    .page-header
+      %h3
+        = @checklist.title
+        %small= link_to '編集', edit_checklist_path(@checklist)
 
 .row
   .col-xs-6
     %dl.dl-horizontal
-      %dt  開始日時
+      %dt  チェック番号
+      %dd= @checklist.id
+      %dt  開始
       %dd= @checklist.start_at
       %dt  期限
       %dd= @checklist.due_at
@@ -22,7 +26,11 @@
       %dd= @checklist.checker
   .col-xs-6
     %dl.dl-horizontal
-      %dt  提出日時
+      %dt  ステータス
+      %dd
+        .progress{ style: 'margin-bottom: 0;' }
+          .progress-bar.progress-bar-success{ role: 'progressbar', aria: { valuenow: '20', valuemin: '0', valuemax: '100' }, style: 'width: 20%;' }20%
+      %dt  提出日
       %dd= @checklist.submit_at
       %dt  提出者
       %dd= @checklist.submitter

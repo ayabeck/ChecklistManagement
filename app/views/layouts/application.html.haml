@@ -9,7 +9,7 @@
     = csrf_meta_tags
   %body
     = render 'layouts/global_navigation'
-    .container
+    .container-fluid
       = render 'layouts/flash_messages', flash: flash
       = yield
     = render 'layouts/footer'
