@@ -1,0 +1,53 @@
+%form.form-horizontal
+  -#見出し
+  .form-group
+    .col-sm-12
+      .page-header.m-b-0
+        %h4 見出しをつけてグルーピング
+
+  -#テキスト
+  .form-group.m-l-0
+    .col-sm-12
+      テキスト/文字列を自由に記載できる
+
+  -#画像
+  .form-group.m-l-0
+    .col-xs-4
+      = image_tag 'test1.jpg', { alt: '...', class: 'img-rounded img-responsive' }
+    .col-xs-4
+      = image_tag 'test2.jpg', { alt: '...', class: 'img-rounded img-responsive' }
+    .col-xs-4
+      = image_tag 'test1.jpg', { alt: '...', class: 'img-rounded img-responsive' }
+
+  -#チェックボックス
+  .form-group.m-l-0
+    .col-xs-12
+      .icon-checkbox
+        .icon-checkbox-left
+          %label
+            %input{ type: 'checkbox' }
+            %span
+        .icon-checkbox-body
+          未実施のチェックボックス
+
+  -#フォーム[数値]
+  .form-group.m-l-0
+    %label.control-label.col-sm-4{ for: 'example1'}
+      数値の入力フォーム
+    .col-sm-8
+      %input#example1.form-control{ type: 'number', placeholder: 'Input value' }
+
+  -#フォーム[ラジオボタン]
+  .form-group.m-l-0
+    %label.control-label.col-sm-4
+      選択肢を選ぶフォーム
+    .col-sm-8
+      %label.radio-inline
+        %input#inlineRadio1{ type: 'radio', name: 'inlineRadio', value: 'option1' }
+        正常な状態かもしれない
+      %label.radio-inline
+        %input#inlineRadio2{ type: 'radio', name: 'inlineRadio', value: 'option2' }
+        再度調査が必要
+      %label.radio-inline
+        %input#inlineRadio3{ type: 'radio', name: 'inlineRadio', value: 'option3' }
+        緊急の対応が必要

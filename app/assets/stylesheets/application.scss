@@ -23,3 +23,36 @@ th {
 .status {
   color: $assort-color;
 }
+// Define custom checkbox style
+.icon-checkbox {
+  @extend .media;
+  margin: -5px 0 -5px -5px;
+}
+.icon-checkbox-left {
+  @extend .media-left;
+  @extend .media-middle;
+  @extend .checkbox;
+  & input[type='checkbox'] {
+    opacity:  0;
+    cursor:pointer;
+  }
+  & span {
+    margin-left: -.5em;
+    @extend .fa;
+    @extend .fa-2x;
+    @extend .fa-circle-o;
+    color: lighten($gray-base, 77.0%);
+    &:hover, &:active {
+      color: $link-color;
+    }
+  }
+  & input[type='checkbox']:checked ~ span {
+    @extend .fa-check-circle;
+    color: $link-color;
+  }
+}
+.icon-checkbox-body {
+  @extend .media-body;
+  @extend .media-middle;
+  padding-top: 5px;
+}
