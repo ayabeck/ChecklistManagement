@@ -29,6 +29,11 @@ th {
 .radio-inline-label {
   margin-bottom: -10px;
 }
+.form-group-template {
+  @extend .form-group;
+  margin: 0 0 5px 0 !important;
+}
+
 // Define custom checkbox style
 .icon-checkbox {
   @extend .media;
