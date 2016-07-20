@@ -10,7 +10,6 @@
 // Customize Tag
 hr {
   margin: 10px auto;
-  border-width: medium;
 }
 th {
   white-space: nowrap;
@@ -23,10 +22,20 @@ th {
 .status {
   color: $assort-color;
 }
+.separator {
+  border-width: medium;
+  margin: 15px auto;
+}
+.radio-inline-label {
+  margin-bottom: -10px;
+}
 // Define custom checkbox style
 .icon-checkbox {
   @extend .media;
   margin: -5px 0 -5px -5px;
+  .icon-checkbox-body {
+    padding-top: 5px;
+  }
 }
 .icon-checkbox-left {
   @extend .media-left;
@@ -54,5 +63,4 @@ th {
 .icon-checkbox-body {
   @extend .media-body;
   @extend .media-middle;
-  padding-top: 5px;
 }
