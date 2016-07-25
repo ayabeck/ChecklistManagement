@@ -158,4 +158,8 @@ SimpleForm.setup do |config|
       time:          :horizontal_multi_select
   }
   config.default_form_class = 'form-horizontal'
+
+  # How the label text should be generated altogether with the required text.
+  # config.label_text = lambda { |label, required, explicit_label| "#{required} #{label}" }
+  config.label_text = lambda { |label, required, explicit_label| "#{label} #{required}" }
 end

@@ -43,6 +43,9 @@ th {
   @extend .form-group;
   margin: 0 0 5px 0 !important;
 }
+.required-text {
+  margin-left: 5px;
+}
 
 // Define custom checkbox style
 .icon-checkbox {
