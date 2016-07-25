@@ -1,7 +1,9 @@
-%h1 Editing checklist_template
+.row
+  .col-xs-7
+    %ol.breadcrumb
+      %li= link_to 'テンプレート', checklist_templates_path
+      %li= link_to '詳細', @checklist_template
+      %li.active 編集
+%br
 
 = render 'form'
-
-= link_to 'Show', @checklist_template
-\|
-= link_to 'Back', checklist_templates_path

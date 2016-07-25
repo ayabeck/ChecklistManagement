@@ -1,25 +1,9 @@
-= form_for @checklist_template do |f|
-  - if @checklist_template.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@checklist_template.errors.count, "error")} prohibited this checklist_template from being saved:"
-      %ul
-        - @checklist_template.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @checklist_template do |f|
+  = f.error_notification
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :checklists_count
-    = f.number_field :checklists_count
-  .field
-    = f.label :creator
-    = f.text_field :creator
-  .field
-    = f.label :updater
-    = f.text_field :updater
-  .actions
-    = f.submit 'Save'
+  .form-inputs
+    = f.input  :title
+    = f.input  :description, input_html: { rows: 3 }
+
+  .form-actions
+    = f.button :submit
