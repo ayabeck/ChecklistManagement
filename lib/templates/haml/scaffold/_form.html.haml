@@ -6,5 +6,6 @@
     = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
   <%- end -%>
 
-  .form-actions
-    = f.button :submit
+  .form-group
+    .form-actions
+      = f.button :submit

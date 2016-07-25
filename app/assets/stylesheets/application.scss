@@ -15,6 +15,16 @@ th {
   white-space: nowrap;
 }
 
+// Customize simple_form_bootstrap
+.form-actions {
+  @extend .col-sm-offset-3;
+  @extend .col-sm-7;
+  margin-top: 10px;
+}
+.has-error {
+  margin-bottom: 5px;
+}
+
 // Define my style
 #logo {
   letter-spacing: -1px;
