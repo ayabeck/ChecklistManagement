@@ -25,7 +25,7 @@
           %td.text-nowrap
             = link_to '詳細', checklist_template
             \|
-            = link_to '削除', checklist_template, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to '削除', checklist_template, method: :delete, data: { confirm: t('message.delete_confirm') }
           %td= checklist_template.title
           %td= truncate checklist_template.description, length: 30
           %td.text-right= checklist_template.checklists_count
