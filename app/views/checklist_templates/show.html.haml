@@ -1,7 +1,7 @@
 .row
   .col-xs-7
     %ol.breadcrumb
-      %li= link_to 'テンプレート', checklist_templates_path
+      %li= link_to t('activerecord.models.checklist_template'), checklist_templates_path
       %li.active 詳細
   .col-xs-5
     .text-right.link-button-group
@@ -15,19 +15,19 @@
 .row
   .col-xs-6
     %dl.dl-horizontal
-      %dt  テンプレート番号
+      %dt= t('activerecord.attributes.checklist_template.id')
       %dd= @checklist_template.id
-      %dt  実施回数
+      %dt= t('activerecord.attributes.checklist_template.checklists_count')
       %dd= @checklist_template.checklists_count
   .col-xs-6
     %dl.dl-horizontal
-      %dt  作成日
+      %dt= t('activerecord.attributes.checklist_template.created_at')
       %dd= @checklist_template.created_at
-      %dt.hidden-xs  作成者
+      %dt.hidden-xs= t('activerecord.attributes.checklist_template.creator')
       %dd.hidden-xs= @checklist_template.creator
-      %dt  更新日
+      %dt= t('activerecord.attributes.checklist_template.updated_at')
       %dd= @checklist_template.updated_at
-      %dt.hidden-xs  更新者
+      %dt.hidden-xs= t('activerecord.attributes.checklist_template.updater')
       %dd.hidden-xs= @checklist_template.updater
   .col-xs-12
     .panel.panel-default

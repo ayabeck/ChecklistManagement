@@ -1,10 +1,10 @@
 .row
   .col-xs-7
     %ol.breadcrumb
-      %li.active チェックリスト
+      %li.active= t('activerecord.models.checklist')
   .col-xs-12
     .page-header
-      %h3 チェックリスト一覧
+      %h3 #{ t('activerecord.models.checklist') }一覧
 
 .text-center
   .btn-group{ role: 'group', "aria-label": '...' }
@@ -17,10 +17,10 @@
     %thead
       %tr
         %th アクション
-        %th タイトル
-        %th 開始
-        %th 期限
-        %th 担当者
+        %th= t('activerecord.attributes.checklist.title')
+        %th= t('activerecord.attributes.checklist.start_at')
+        %th= t('activerecord.attributes.checklist.due_at')
+        %th= t('activerecord.attributes.checklist.checker')
         %th ステータス
     %tbody
       - @checklists.each do |checklist|

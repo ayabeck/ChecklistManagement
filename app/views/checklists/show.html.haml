@@ -1,7 +1,7 @@
 .row
   .col-xs-7
     %ol.breadcrumb
-      %li= link_to 'チェックリスト', checklists_path
+      %li= link_to t('activerecord.models.checklist'), checklists_path
       %li.active 詳細
   .col-xs-5
     .text-right
@@ -16,13 +16,13 @@
 .row
   .col-xs-6
     %dl.dl-horizontal
-      %dt  チェック番号
+      %dt= t('activerecord.attributes.checklist.id')
       %dd= @checklist.id
-      %dt  開始
+      %dt= t('activerecord.attributes.checklist.start_at')
       %dd= @checklist.start_at
-      %dt  期限
+      %dt= t('activerecord.attributes.checklist.due_at')
       %dd= @checklist.due_at
-      %dt  担当者
+      %dt= t('activerecord.attributes.checklist.checker')
       %dd= @checklist.checker
   .col-xs-6
     %dl.dl-horizontal
@@ -30,9 +30,9 @@
       %dd
         .progress{ style: 'margin-bottom: 0;' }
           .progress-bar.progress-bar-success{ role: 'progressbar', aria: { valuenow: '20', valuemin: '0', valuemax: '100' }, style: 'width: 20%;' }20%
-      %dt  提出日
+      %dt= t('activerecord.attributes.checklist.submit_at')
       %dd= @checklist.submit_at
-      %dt  提出者
+      %dt= t('activerecord.attributes.checklist.submitter')
       %dd= @checklist.submitter
 
 %hr.separator

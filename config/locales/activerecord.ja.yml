@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      checklist_template: テンプレート
+      checklist: チェックリスト
+    attributes:
+      checklist_template:
+        id: テンプレート番号
+        title: タイトル
+        description: 説明
+        checklists_count: 実施回数
+        creator: 作成者
+        created_at: 作成日
+        updater: 更新者
+        updated_at: 更新日
+      checklist:
+        id: チェック番号
+        title: タイトル
+        checker: 担当者
+        start_at: 開始
+        due_at: 期限
+        submitter: 提出者
+        submit_at: 提出日
