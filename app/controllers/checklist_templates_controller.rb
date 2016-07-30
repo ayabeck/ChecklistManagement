@@ -25,6 +25,7 @@ class ChecklistTemplatesController < ApplicationController
   # POST /checklist_templates.json
   def create
     @checklist_template = ChecklistTemplate.new(checklist_template_params)
+    @checklist_template.updater = @checklist_template.creator
 
     respond_to do |format|
       if @checklist_template.save

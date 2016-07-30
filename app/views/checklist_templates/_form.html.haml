@@ -4,6 +4,10 @@
   .form-inputs
     = f.input  :title
     = f.input  :description, input_html: { rows: 3 }
+    - if (action_name == 'new' || action_name == 'create')
+      = f.input  :creator
+    - if (action_name == 'edit' || action_name == 'update')
+      = f.input  :updater
 
   .form-group
     .form-actions
