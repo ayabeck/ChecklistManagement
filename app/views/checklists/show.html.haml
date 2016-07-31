@@ -26,6 +26,8 @@
       %dd= @checklist.checker
   .col-xs-6
     %dl.dl-horizontal
+      %dt= t('activerecord.attributes.checklist_template.id')
+      %dd= @checklist.checklist_template_id
       %dt  ステータス
       %dd
         .progress{ style: 'margin-bottom: 0;' }

@@ -13,6 +13,8 @@
 #
 
 class ChecklistTemplate < ActiveRecord::Base
+  has_many :checklists
+
   validates :title,   presence: true
   validates :creator, presence: true
   validates :updater, presence: true

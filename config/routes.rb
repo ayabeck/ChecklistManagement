@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :checklist_templates
-  resources :checklists
+  resources :checklist_templates do
+    resources :checklists, only: [:new, :create]
+  end
+  resources :checklists, except: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

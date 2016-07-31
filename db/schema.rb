@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 20160705003358) do
   end
 
   create_table "checklists", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",                 null: false
     t.string   "checker"
     t.datetime "start_at"
     t.datetime "due_at"
     t.string   "submitter"
     t.datetime "submit_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "checklist_template_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
