@@ -13,12 +13,10 @@
         %small= link_to '編集', edit_checklist_template_path(@checklist_template)
 
 .row
-  .col-xs-6
+  .col-xs-12
     %dl.dl-horizontal
       %dt= t('activerecord.attributes.checklist_template.id')
       %dd= @checklist_template.id
-      %dt= t('activerecord.attributes.checklist_template.checklists_count')
-      %dd= @checklist_template.checklists_count
   .col-xs-6
     %dl.dl-horizontal
       %dt= t('activerecord.attributes.checklist_template.created_at')
@@ -29,6 +27,10 @@
       %dd= @checklist_template.updated_at
       %dt.hidden-xs= t('activerecord.attributes.checklist_template.updater')
       %dd.hidden-xs= @checklist_template.updater
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt= t('activerecord.attributes.checklist_template.checklists_count')
+      %dd= @checklist_template.checklists_count
   .col-xs-12
     .panel.panel-default
       .panel-body= @checklist_template.description
