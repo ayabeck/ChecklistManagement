@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: checklist_templates
+# Table name: templates
 #
 #  id               :integer          not null, primary key
 #  title            :string           not null
@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 
-class ChecklistTemplate < ActiveRecord::Base
+class Template < ActiveRecord::Base
   has_many :checklists
 
   validates :title,   presence: true

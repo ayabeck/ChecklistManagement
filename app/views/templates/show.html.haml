@@ -1,0 +1,40 @@
+.row
+  .col-xs-7
+    %ol.breadcrumb
+      %li= link_to t('activerecord.models.template'), templates_path
+      %li.active 詳細
+  .col-xs-5
+    .text-right.link-button-group
+      = link_to '割り当て', new_template_checklist_path(@template), { role: 'button', class: 'btn btn-default' }
+  .col-xs-12
+    .page-header
+      %h3
+        = @template.title
+        %small= link_to '編集', edit_template_path(@template)
+
+.row
+  .col-xs-12
+    %dl.dl-horizontal
+      %dt= t('activerecord.attributes.template.id')
+      %dd= @template.id
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt= t('activerecord.attributes.template.created_at')
+      %dd= @template.created_at
+      %dt.hidden-xs= t('activerecord.attributes.template.creator')
+      %dd.hidden-xs= @template.creator
+      %dt= t('activerecord.attributes.template.updated_at')
+      %dd= @template.updated_at
+      %dt.hidden-xs= t('activerecord.attributes.template.updater')
+      %dd.hidden-xs= @template.updater
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt= t('activerecord.attributes.template.checklists_count')
+      %dd= @template.checklists_count
+  .col-xs-12
+    .panel.panel-default
+      .panel-body= @template.description
+
+%hr.separator
+
+= render 'check_form'

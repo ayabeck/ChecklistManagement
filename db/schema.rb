@@ -13,7 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20160705003358) do
 
-  create_table "checklist_templates", force: :cascade do |t|
+  create_table "checklists", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.string   "checker"
+    t.datetime "start_at"
+    t.datetime "due_at"
+    t.string   "submitter"
+    t.datetime "submit_at"
+    t.integer  "template_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "templates", force: :cascade do |t|
     t.string   "title",                        null: false
     t.text     "description"
     t.integer  "checklists_count", default: 0, null: false
@@ -21,18 +33,6 @@ ActiveRecord::Schema.define(version: 20160705003358) do
     t.string   "updater",                      null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-  end
-
-  create_table "checklists", force: :cascade do |t|
-    t.string   "title",                 null: false
-    t.string   "checker"
-    t.datetime "start_at"
-    t.datetime "due_at"
-    t.string   "submitter"
-    t.datetime "submit_at"
-    t.integer  "checklist_template_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
 
 end

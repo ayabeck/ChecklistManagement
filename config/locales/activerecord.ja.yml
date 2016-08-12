@@ -1,10 +1,10 @@
 ja:
   activerecord:
     models:
-      checklist_template: テンプレート
+      template: テンプレート
       checklist: チェックリスト
     attributes:
-      checklist_template:
+      template:
         id: テンプレート番号
         title: タイトル
         description: 説明

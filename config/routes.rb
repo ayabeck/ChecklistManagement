@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :checklist_templates do
+  resources :templates do
     resources :checklists, only: [:new, :create]
   end
   resources :checklists, except: [:new, :create]

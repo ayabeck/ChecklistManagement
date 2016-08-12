@@ -1,6 +1,6 @@
-class CreateChecklistTemplates < ActiveRecord::Migration
+class CreateTemplates < ActiveRecord::Migration
   def change
-    create_table :checklist_templates do |t|
+    create_table :templates do |t|
       t.string  :title,            null: false
       t.text    :description
       t.integer :checklists_count, null: false, default: 0

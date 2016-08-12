@@ -1,0 +1,33 @@
+.row
+  .col-xs-7
+    %ol.breadcrumb
+      %li.active= t('activerecord.models.template')
+  .col-xs-5
+    .text-right
+      = link_to '新規作成', new_template_path, { role: 'button', class: 'btn btn-default' }
+  .col-xs-12
+    .page-header
+      %h3 #{ t('activerecord.models.template') }一覧
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th アクション
+        %th= t('activerecord.attributes.template.title')
+        %th= t('activerecord.attributes.template.description')
+        %th= t('activerecord.attributes.template.checklists_count')
+        %th= t('activerecord.attributes.template.updated_at')
+        %th= t('activerecord.attributes.template.updater')
+    %tbody
+      - @templates.each do |template|
+        %tr
+          %td.text-nowrap
+            = link_to '詳細', template
+            \|
+            = link_to '削除', template, method: :delete, data: { confirm: t('message.delete_confirm') }
+          %td= template.title
+          %td= truncate   template.description, length: 30
+          %td.text-right= template.checklists_count
+          %td= template.updated_at
+          %td= template.updater

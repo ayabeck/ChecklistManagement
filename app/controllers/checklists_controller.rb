@@ -1,6 +1,6 @@
 class ChecklistsController < ApplicationController
   before_action :set_checklist, only: [:show, :edit, :update, :destroy]
-  before_action :set_checklist_template, only: [:new, :create]
+  before_action :set_template,  only: [:new, :create]
 
   # GET /checklists
   # GET /checklists.json
@@ -13,21 +13,21 @@ class ChecklistsController < ApplicationController
   def show
   end
 
-  # GET /checklists/new
+  # GET /templates/1/checklists/new
   def new
     @checklist = Checklist.new
-    @checklist.title = @checklist_template.title
+    @checklist.title = @template.title
   end
 
   # GET /checklists/1/edit
   def edit
   end
 
-  # POST /checklists
-  # POST /checklists.json
+  # POST /templates/1/checklists
+  # POST /templates/1/checklists.json
   def create
     @checklist = Checklist.new(checklist_params)
-    @checklist.checklist_template_id = @checklist_template.id
+    @checklist.template_id = @template.id
 
     respond_to do |format|
       if @checklist.save
@@ -69,8 +69,8 @@ class ChecklistsController < ApplicationController
     def set_checklist
       @checklist = Checklist.find(params[:id])
     end
-    def set_checklist_template
-      @checklist_template = ChecklistTemplate.find(params[:checklist_template_id])
+    def set_template
+      @template = Template.find(params[:template_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
