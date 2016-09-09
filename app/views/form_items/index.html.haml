@@ -1,0 +1,27 @@
+%h1 Listing form_items
+
+%table
+  %thead
+    %tr
+      %th Type
+      %th Order
+      %th Label
+      %th Value
+      %th
+      %th
+      %th
+
+  %tbody
+    - @form_items.each do |form_item|
+      %tr
+        %td= form_item.type
+        %td= form_item.order
+        %td= form_item.label
+        %td= form_item.value
+        %td= link_to 'Show', form_item
+        %td= link_to 'Edit', edit_form_item_path(form_item)
+        %td= link_to 'Destroy', form_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Form item', new_form_item_path

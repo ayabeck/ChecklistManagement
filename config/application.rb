@@ -37,5 +37,7 @@ module ChecklistManagement
       g.helper   false
       g.jbuilder false
     end
+    # To collecct models of form_items
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', 'form_items')]
   end
 end

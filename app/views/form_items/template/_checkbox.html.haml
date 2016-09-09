@@ -1,0 +1,13 @@
+-#チェックボックス
+.media
+  .media-body.media-middle
+    .col-xs-12
+      .icon-checkbox-left
+        %label
+          %input{ type: 'checkbox' }
+          %span
+      .icon-checkbox-body
+        = form_item.label
+  .media-right.media-middle.text-nowrap
+    = link_to '編集', '#', class: 'media-object'
+%hr

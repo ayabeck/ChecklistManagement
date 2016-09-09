@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :form_items
   resources :templates do
     resources :checklists, only: [:new, :create]
   end

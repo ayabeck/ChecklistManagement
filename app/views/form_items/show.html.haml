@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Type:
+  = @form_item.type
+%p
+  %b Order:
+  = @form_item.order
+%p
+  %b Label:
+  = @form_item.label
+%p
+  %b Value:
+  = @form_item.value
+
+= link_to 'Edit', edit_form_item_path(@form_item)
+\|
+= link_to 'Back', form_items_path
