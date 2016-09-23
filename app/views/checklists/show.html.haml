@@ -42,4 +42,6 @@
 
 %hr.separator
 
-= render 'check_form'
+%form.form-horizontal
+  - @form_items.each do |form_item|
+    = render partial: "form_items/checklist/#{ form_item.class.name.underscore }", locals: { form_item: form_item }
