@@ -16,6 +16,7 @@
 
 class Checklist < ActiveRecord::Base
   belongs_to :template, counter_cache: true
+  has_many :form_items
 
   validates :title, presence: true
 end

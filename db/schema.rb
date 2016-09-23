@@ -26,13 +26,14 @@ ActiveRecord::Schema.define(version: 20160826005507) do
   end
 
   create_table "form_items", force: :cascade do |t|
-    t.string   "type",        null: false
-    t.integer  "order",       null: false
-    t.string   "label",       null: false
+    t.string   "type",         null: false
+    t.integer  "order",        null: false
+    t.string   "label",        null: false
     t.string   "value"
     t.integer  "template_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "checklist_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "templates", force: :cascade do |t|

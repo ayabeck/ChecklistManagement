@@ -11,7 +11,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists/1
   # GET /checklists/1.json
   def show
-    @form_items = FormItem.where(template_id: @checklist.template_id)
+    @form_items = FormItem.where(checklist_id: @checklist.id)
   end
 
   # GET /templates/1/checklists/new
@@ -29,6 +29,7 @@ class ChecklistsController < ApplicationController
   def create
     @checklist = Checklist.new(checklist_params)
     @checklist.template_id = @template.id
+    FormItem.batch_copy(@template, @checklist)
 
     respond_to do |format|
       if @checklist.save

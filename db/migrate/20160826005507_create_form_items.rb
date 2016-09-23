@@ -6,6 +6,7 @@ class CreateFormItems < ActiveRecord::Migration
       t.string  :label,       null: false
       t.string  :value
       t.integer :template_id
+      t.integer :checklist_id
 
       t.timestamps null: false
     end
