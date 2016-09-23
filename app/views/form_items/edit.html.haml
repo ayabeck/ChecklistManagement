@@ -1,7 +1,9 @@
-%h1 Editing form_item
+.row
+  .col-xs-12
+    %ol.breadcrumb
+      %li= link_to t('activerecord.models.template'), templates_path
+      %li= link_to '詳細', @template
+      %li.active #{ @form_item.type_name }の編集
+%br
 
-= render 'form'
-
-= link_to 'Show', @form_item
-\|
-= link_to 'Back', form_items_path
+= render partial: 'form', locals: { template: nil, form_item: @form_item }

@@ -37,4 +37,10 @@
 
 %hr.separator
 
-= render 'check_form'
+.text-right
+  = link_to '項目の追加', new_template_form_item_path(@template)
+%hr
+
+- @form_items.each do |form_item|
+  = render partial: "form_items/template/#{ form_item.class.name.underscore }", locals: { form_item: form_item }
+  %hr

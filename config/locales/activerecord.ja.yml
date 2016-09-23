@@ -3,6 +3,10 @@ ja:
     models:
       template: テンプレート
       checklist: チェックリスト
+      form_items:
+        heading: 見出し
+        help_text: 補足文
+        checkbox: チェックボックス
     attributes:
       template:
         id: テンプレート番号
@@ -21,3 +25,7 @@ ja:
         due_at: 期限
         submitter: 提出者
         submit_at: 提出日
+      form_item:
+        type: 種類
+        label: ラベル
+        value: 入力値

@@ -10,6 +10,7 @@ class TemplatesController < ApplicationController
   # GET /templates/1
   # GET /templates/1.json
   def show
+    @form_items = FormItem.where(template_id: @template.id)
   end
 
   # GET /templates/new

@@ -14,6 +14,7 @@
 
 class Template < ActiveRecord::Base
   has_many :checklists
+  has_many :form_items
 
   validates :title,   presence: true
   validates :creator, presence: true

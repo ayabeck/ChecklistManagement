@@ -1,16 +1,6 @@
 class FormItemsController < ApplicationController
-  before_action :set_form_item, only: [:show, :edit, :update, :destroy]
-
-  # GET /form_items
-  # GET /form_items.json
-  def index
-    @form_items = FormItem.all
-  end
-
-  # GET /form_items/1
-  # GET /form_items/1.json
-  def show
-  end
+  before_action :set_form_item, only: [:edit, :update, :destroy]
+  before_action :set_template,  only: [:new, :create]
 
   # GET /form_items/new
   def new
@@ -19,16 +9,18 @@ class FormItemsController < ApplicationController
 
   # GET /form_items/1/edit
   def edit
+    @template = @form_item.template
   end
 
   # POST /form_items
   # POST /form_items.json
   def create
     @form_item = FormItem.new(form_item_params)
+    @form_item.set_parent(@template)
 
     respond_to do |format|
       if @form_item.save
-        format.html { redirect_to @form_item, notice: 'Form item was successfully created.' }
+        format.html { redirect_to @template, notice: 'Form item was successfully created.' }
         format.json { render :show, status: :created, location: @form_item }
       else
         format.html { render :new }
@@ -40,9 +32,10 @@ class FormItemsController < ApplicationController
   # PATCH/PUT /form_items/1
   # PATCH/PUT /form_items/1.json
   def update
+    @template = @form_item.template
     respond_to do |format|
       if @form_item.update(form_item_params)
-        format.html { redirect_to @form_item, notice: 'Form item was successfully updated.' }
+        format.html { redirect_to @template, notice: 'Form item was successfully updated.' }
         format.json { render :show, status: :ok, location: @form_item }
       else
         format.html { render :edit }
@@ -54,9 +47,10 @@ class FormItemsController < ApplicationController
   # DELETE /form_items/1
   # DELETE /form_items/1.json
   def destroy
+    template = @form_item.template
     @form_item.destroy
     respond_to do |format|
-      format.html { redirect_to form_items_url, notice: 'Form item was successfully destroyed.' }
+      format.html { redirect_to template, notice: 'Form item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +58,22 @@ class FormItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_form_item
-      @form_item = FormItem.find(params[:id])
+      @form_item = form_item_class.find(params[:id])
+    end
+    def set_template
+      @template = Template.find(params[:template_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_item_params
-      params.require(:form_item).permit(:type, :order, :label, :value)
+      params.require(type.underscore.to_sym).permit(:type, :order, :label, :value)
+    end
+
+    # Utility
+    def form_item_class
+      type.constantize
+    end
+    def type
+      params[:type] || "FormItem"
     end
 end

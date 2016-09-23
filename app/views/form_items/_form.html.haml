@@ -1,11 +1,11 @@
-= simple_form_for(@form_item) do |f|
+= simple_form_for [template, form_item] do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :type
-    = f.input :order
+    - if action_name == 'new' || action_name == 'create'
+      - types = FormItem.types_collection
+      = f.input :type, as: :radio_buttons, item_wrapper_class: 'radio-inline radio-form-margin', collection: types
     = f.input :label
-    = f.input :value
 
   .form-group
     .form-actions

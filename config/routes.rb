@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :form_items
-  resources :templates do
-    resources :checklists, only: [:new, :create]
+  resources :templates, shallow:true do
+    resources :checklists, except: [:index]
+    resources :form_items, except: [:index, :show]
+    resources :headings,   except: [:index, :show], controller: :form_items, type: 'Heading'
+    resources :checkboxes, except: [:index, :show], controller: :form_items, type: 'Checkbox'
+    resources :help_texts, except: [:index, :show], controller: :form_items, type: 'HelpText'
   end
-  resources :checklists, except: [:new, :create]
+  resources :checklists, only: [:index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
