@@ -16,7 +16,6 @@
   %table.table.table-striped
     %thead
       %tr
-        %th アクション
         %th= t('activerecord.attributes.checklist.title')
         %th= t('activerecord.attributes.checklist.start_at')
         %th= t('activerecord.attributes.checklist.due_at')
@@ -25,11 +24,7 @@
     %tbody
       - @checklists.each do |checklist|
         %tr
-          %td.text-nowrap
-            = link_to '詳細', checklist
-            \|
-            = link_to '削除', checklist, method: :delete, data: { confirm: t('message.delete_confirm') }
-          %td= truncate checklist.title, length: 30
+          %td= link_to truncate(checklist.title, length: 30), checklist
           %td= checklist.start_at
           %td= checklist.due_at
           %td= checklist.checker

@@ -49,6 +49,10 @@ th {
 .radio-form-margin {
   margin-left: -20px;
 }
+.delete-action {
+  @extend .text-danger;
+  padding-left: 8px;
+}
 
 // Define custom checkbox style
 .icon-checkbox {

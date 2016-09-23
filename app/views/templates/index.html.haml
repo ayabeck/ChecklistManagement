@@ -13,7 +13,6 @@
   %table.table.table-striped
     %thead
       %tr
-        %th アクション
         %th= t('activerecord.attributes.template.title')
         %th= t('activerecord.attributes.template.description')
         %th= t('activerecord.attributes.template.checklists_count')
@@ -22,11 +21,7 @@
     %tbody
       - @templates.each do |template|
         %tr
-          %td.text-nowrap
-            = link_to '詳細', template
-            \|
-            = link_to '削除', template, method: :delete, data: { confirm: t('message.delete_confirm') }
-          %td= template.title
+          %td= link_to template.title, template
           %td= truncate   template.description, length: 30
           %td.text-right= template.checklists_count
           %td= template.updated_at

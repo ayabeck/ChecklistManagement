@@ -9,5 +9,5 @@
       .icon-checkbox-body
         = form_item.label
   .media-right.media-middle.text-nowrap
-    = link_to '編集', edit_form_item_path(form_item), class: 'media-object'
-    = link_to '削除', form_item, method: :delete, data: { confirm: t('message.delete_confirm') }
+    = link_to '編集', edit_form_item_path(form_item)
+    = link_to '削除', form_item, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'

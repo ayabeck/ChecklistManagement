@@ -10,7 +10,9 @@
     .page-header
       %h3
         = @template.title
-        %small= link_to '編集', edit_template_path(@template)
+        %small
+          = link_to '編集', edit_template_path(@template)
+          = link_to '削除', @template, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
 
 .row
   .col-xs-12
