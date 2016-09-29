@@ -19,4 +19,24 @@ class Checklist < ActiveRecord::Base
   has_many :form_items
 
   validates :title, presence: true
+
+  def forms
+    self.form_items.each_with_object([]) do |item, object|
+      object << item if item.is_form?
+    end
+  end
+
+  def update_forms!(form_params)
+    if form_params
+      self.forms.each do |form|
+        new_value = form_params[form.id.to_s]
+        form.update_value!(new_value)
+      end
+    else
+      self.forms.each do |form|
+        new_value = ''
+        form.update_value!(new_value)
+      end
+    end
+  end
 end

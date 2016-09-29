@@ -14,4 +14,18 @@
 #
 
 class Checkbox < FormItem
+  def checked?
+    self.value == 'true'
+  end
+
+  def is_form?
+    true
+  end
+
+  def update_value!(value)
+    new_value = value.presence || 'false'
+    if self.value != new_value
+      self.update!(value: new_value)
+    end
+  end
 end

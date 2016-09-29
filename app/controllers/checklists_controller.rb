@@ -1,5 +1,5 @@
 class ChecklistsController < ApplicationController
-  before_action :set_checklist, only: [:show, :edit, :update, :destroy]
+  before_action :set_checklist, only: [:show, :edit, :update, :destroy, :save]
   before_action :set_template,  only: [:new, :create]
 
   # GET /checklists
@@ -64,6 +64,16 @@ class ChecklistsController < ApplicationController
       format.html { redirect_to checklists_url, notice: 'Checklist was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # PATCH/PUT /checklists/1/save
+  def save
+    ActiveRecord::Base.transaction do
+      @checklist.update_forms!(params[:form])
+      redirect_to @checklist, notice: 'Checklist was successfully saved.'
+    end
+  rescue => e
+    redirect_to @checklist, notice: e.message
   end
 
   private

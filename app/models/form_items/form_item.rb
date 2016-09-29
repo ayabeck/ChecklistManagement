@@ -48,6 +48,10 @@ class FormItem < ActiveRecord::Base
     end
   end
 
+  def is_form?
+    false
+  end
+
   def set_parent(template)
     self.template_id = template.id
     self.order       = FormItem.where(template_id: template.id).count(:id) + 1
