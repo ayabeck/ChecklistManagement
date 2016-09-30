@@ -27,16 +27,10 @@ class Checklist < ActiveRecord::Base
   end
 
   def update_forms!(form_params)
-    if form_params
-      self.forms.each do |form|
-        new_value = form_params[form.id.to_s]
-        form.update_value!(new_value)
-      end
-    else
-      self.forms.each do |form|
-        new_value = ''
-        form.update_value!(new_value)
-      end
+    form_params ||= {}
+    self.forms.each do |form|
+      new_value = form_params.fetch(form.id.to_s, '')
+      form.update_value!(new_value)
     end
   end
 end
