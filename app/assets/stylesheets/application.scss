@@ -46,18 +46,31 @@ th {
 .required-text {
   margin-left: 5px;
 }
-.radio-form-margin {
+.radio-form {
   margin-left: -20px;
+  padding-left: 10px;
 }
 .delete-action {
   @extend .text-danger;
-  padding-left: 8px;
+  padding-left: 5px;
+}
+.checklist-form-btn {
+  @extend .btn;
+  @extend .btn-default;
+  margin-top: 15px;
+}
+.heading {
+  @extend .page-header;
+  margin-bottom: -8px;
+}
+.help-text {
+  margin-top: 5px;
 }
 
 // Define custom checkbox style
 .icon-checkbox {
   @extend .media;
-  margin: -5px 0 -5px -5px;
+  margin: 0 0 -10px -5px;
   .icon-checkbox-body {
     padding-top: 5px;
   }

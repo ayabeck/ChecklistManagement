@@ -45,4 +45,4 @@
     = render partial: "form_items/checklist/#{ form_item.class.name.underscore }", locals: { form_item: form_item }
   - if @checklist.forms.present?
     .text-right
-      = submit_tag '保存', class: 'btn btn-default', disable_with: '送信中...'
+      = submit_tag '保存', class: 'checklist-form-btn', disable_with: '送信中...'
