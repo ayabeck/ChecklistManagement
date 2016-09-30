@@ -11,7 +11,7 @@ class ChecklistsController < ApplicationController
   # GET /checklists/1
   # GET /checklists/1.json
   def show
-    @form_items = FormItem.where(checklist_id: @checklist.id)
+    @form_items = @checklist.form_items.order(:order)
   end
 
   # GET /templates/1/checklists/new
