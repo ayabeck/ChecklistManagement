@@ -14,8 +14,6 @@
 #
 
 class Checkbox < FormItem
-  before_create :default_value
-
   def checked?
     self.value == 'true'
   end
@@ -24,13 +22,8 @@ class Checkbox < FormItem
     true
   end
 
-  def update_value!(value)
-    new_value = value.presence || 'false'
-    self.update!(value: new_value)
-  end
-
   private
-    def default_value
-      self.value = 'false'
+    def DEFAULT_VALUE
+      'false'
     end
 end

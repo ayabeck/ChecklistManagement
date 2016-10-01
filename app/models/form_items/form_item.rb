@@ -20,6 +20,8 @@ class FormItem < ActiveRecord::Base
   validates :type,  presence: true
   validates :label, presence: true
 
+  before_create :set_default
+
   TYPES = %w(Heading HelpText Checkbox)
 
   # parent は Template と Checklist のみを想定
@@ -60,4 +62,18 @@ class FormItem < ActiveRecord::Base
   def type_name
     I18n.t("activerecord.models.form_items.#{ self.type.underscore }")
   end
+
+  def update_value!(value)
+    new_value = value.presence || DEFAULT_VALUE()
+    self.update!(value: new_value)
+  end
+
+  private
+    def DEFAULT_VALUE
+      nil
+    end
+
+    def set_default
+      self.value = DEFAULT_VALUE()
+    end
 end
