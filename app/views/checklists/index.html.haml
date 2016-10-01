@@ -28,4 +28,4 @@
           %td= checklist.start_at
           %td= checklist.due_at
           %td= checklist.checker
-          %td.text-nowrap= icon 'check-circle status', '提出済み'
+          %td= status_or_progress(checklist)

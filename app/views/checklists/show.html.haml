@@ -29,10 +29,9 @@
       %dd= @checklist.checker
   .col-xs-6
     %dl.dl-horizontal
-      %dt  ステータス
+      %dt ステータス
       %dd
-        .progress{ style: 'margin-bottom: 0;' }
-          .progress-bar.progress-bar-success{ role: 'progressbar', aria: { valuenow: '20', valuemin: '0', valuemax: '100' }, style: 'width: 20%;' }20%
+        = status_or_progress(@checklist)
       - if @checklist.submit_at.present?
         %dt= t('activerecord.attributes.checklist.submit_at')
         %dd= @checklist.submit_at
