@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
+    = f.input :label, autofocus: true
     - if action_name == 'new' || action_name == 'create'
       - types = FormItem.types_collection
       = f.input :type, as: :radio_buttons, item_wrapper_class: 'radio-inline radio-form', collection: types
-    = f.input :label
 
   .form-group
     .form-actions

@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input  :title
+    = f.input  :title, autofocus: true
     = f.input  :description, input_html: { rows: 3 }
     - if (action_name == 'new' || action_name == 'create')
       = f.input  :creator
