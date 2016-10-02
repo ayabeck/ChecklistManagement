@@ -37,11 +37,11 @@ class FormItem < ActiveRecord::Base
     from_parent.form_items.each do |item|
       new_item = item.dup
       if to_parent.kind_of?(Template)
-        item.template_id  = to_parent.id
-        item.checklist_id = nil
+        new_item.template_id  = to_parent.id
+        new_item.checklist_id = nil
       else
-        item.template_id  = nil
-        item.checklist_id = to_parent.id
+        new_item.template_id  = nil
+        new_item.checklist_id = to_parent.id
       end
 
       to_parent.form_items << new_item
