@@ -14,12 +14,11 @@
 #
 
 class Checkbox < FormItem
+  def DEFAULT_VALUE
+    ''
+  end
+
   def checked?
     self.value == 'true'
   end
-
-  private
-    def DEFAULT_VALUE
-      ''
-    end
 end

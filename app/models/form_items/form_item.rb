@@ -24,6 +24,9 @@ class FormItem < ActiveRecord::Base
 
   FORM_TYPES = %w(Checkbox NumberField)
   TYPES = %w(Heading HelpText).concat(FORM_TYPES)
+  def DEFAULT_VALUE
+    nil
+  end
 
   default_scope { order(:order) }
   scope :completed, -> { where.not(value: [nil, '']) }
@@ -64,16 +67,7 @@ class FormItem < ActiveRecord::Base
     I18n.t("activerecord.models.form_items.#{ self.type.underscore }")
   end
 
-  def update_value!(value)
-    new_value = value.presence || DEFAULT_VALUE()
-    self.update!(value: new_value)
-  end
-
   private
-    def DEFAULT_VALUE
-      nil
-    end
-
     def set_default
       self.value = DEFAULT_VALUE()
     end

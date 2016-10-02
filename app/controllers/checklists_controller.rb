@@ -68,12 +68,16 @@ class ChecklistsController < ApplicationController
 
   # PATCH/PUT /checklists/1/save
   def save
+    @form_items = @checklist.form_items_adding(params[:form])
+
     ActiveRecord::Base.transaction do
-      @checklist.update_forms!(params[:form])
+      @form_items.each { |item| item.save! }
+      @checklist.update_progression_rate!
       redirect_to @checklist, notice: 'Checklist was successfully saved.'
     end
   rescue => e
-    redirect_to @checklist, notice: e.message
+    flash.now[:error] = e.message
+    render :show
   end
 
   private

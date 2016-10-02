@@ -25,13 +25,15 @@ class Checklist < ActiveRecord::Base
     self.form_items.extract_forms
   end
 
-  def update_forms!(form_params)
+  def form_items_adding(form_params)
     form_params ||= {}
-    self.forms.each do |form|
-      new_value = form_params.fetch(form.id.to_s, '')
-      form.update_value!(new_value)
+    self.form_items.each_with_object([]) do |item, object|
+      item.value = form_params.fetch(item.id.to_s, item.DEFAULT_VALUE())
+      object << item
     end
+  end
 
+  def update_progression_rate!
     self.update!(
         progression_rate: (self.forms.completed.count.quo(self.forms.size) * 100).round
     )
