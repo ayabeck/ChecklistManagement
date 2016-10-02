@@ -24,6 +24,6 @@ class Checkbox < FormItem
 
   private
     def DEFAULT_VALUE
-      'false'
+      ''
     end
 end

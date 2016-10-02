@@ -19,4 +19,9 @@ class NumberField < FormItem
   def is_form?
     true
   end
+
+  private
+    def DEFAULT_VALUE
+      ''
+    end
 end
