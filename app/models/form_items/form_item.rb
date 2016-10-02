@@ -22,7 +22,12 @@ class FormItem < ActiveRecord::Base
 
   before_create :set_default
 
-  TYPES = %w(Heading HelpText Checkbox NumberField)
+  FORM_TYPES = %w(Checkbox NumberField)
+  TYPES = %w(Heading HelpText).concat(FORM_TYPES)
+
+  default_scope { order(:order) }
+  scope :completed, -> { where.not(value: [nil, '']) }
+  scope :extract_forms, -> { where(type: FORM_TYPES) }
 
   # parent は Template と Checklist のみを想定
   def self.batch_copy(from_parent, to_parent)
@@ -48,10 +53,6 @@ class FormItem < ActiveRecord::Base
     TYPES.each_with_object([]) do |type, object|
       object << [I18n.t("activerecord.models.form_items.#{ type.underscore }"), type]
     end
-  end
-
-  def is_form?
-    false
   end
 
   def set_parent(template)

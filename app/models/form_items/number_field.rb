@@ -16,10 +16,6 @@
 class NumberField < FormItem
   validates :value, numericality: true, allow_blank: true
 
-  def is_form?
-    true
-  end
-
   private
     def DEFAULT_VALUE
       ''
