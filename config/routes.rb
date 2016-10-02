@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :templates, shallow:true do
-    resources :checklists, except: [:index]
-    resources :form_items, except: [:index, :show]
-    resources :headings,   except: [:index, :show], controller: :form_items, type: 'Heading'
-    resources :checkboxes, except: [:index, :show], controller: :form_items, type: 'Checkbox'
-    resources :help_texts, except: [:index, :show], controller: :form_items, type: 'HelpText'
+    resources :checklists,   except: [:index]
+    resources :form_items,   except: [:index, :show]
+    resources :checkboxes,   except: [:index, :show], controller: :form_items, type: 'Checkbox'
+    resources :headings,     except: [:index, :show], controller: :form_items, type: 'Heading'
+    resources :help_texts,   except: [:index, :show], controller: :form_items, type: 'HelpText'
+    resources :number_field, except: [:index, :show], controller: :form_items, type: 'NumberField'
   end
   resources :checklists, only: [:index] do
     member do

@@ -22,7 +22,7 @@ class FormItem < ActiveRecord::Base
 
   before_create :set_default
 
-  TYPES = %w(Heading HelpText Checkbox)
+  TYPES = %w(Heading HelpText Checkbox NumberField)
 
   # parent は Template と Checklist のみを想定
   def self.batch_copy(from_parent, to_parent)

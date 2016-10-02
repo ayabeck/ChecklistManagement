@@ -7,6 +7,7 @@ ja:
         heading: 見出し
         help_text: 補足文
         checkbox: チェックボックス
+        number_field: 数値入力
     attributes:
       template:
         id: テンプレート番号
@@ -28,4 +29,5 @@ ja:
       form_item:
         type: 種類
         label: ラベル
-        value: 入力値
+      number_field:
+        value: 数値入力フォーム
