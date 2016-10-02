@@ -2,4 +2,4 @@
 .form-group.m-l-0
   = label_tag "form[#{ form_item.id }]", form_item.label, class: 'control-label col-sm-4'
   .col-sm-8
-    = number_field_tag "form[#{ form_item.id }]", form_item.value, class: 'form-control', placeholder: '数値を入力してください'
+    = text_field_tag "form[#{ form_item.id }]", form_item.value, class: 'form-control', placeholder: '数値を入力してください'
