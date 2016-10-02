@@ -34,21 +34,17 @@ class FormItem < ActiveRecord::Base
 
   # parent は Template と Checklist のみを想定
   def self.batch_copy(from_parent, to_parent)
-    from_parent.form_items.each do |form_item|
-      new_form_item = form_item.dup
-      to_parent.form_items << new_form_item
-    end
+    from_parent.form_items.each do |item|
+      new_item = item.dup
+      if to_parent.kind_of?(Template)
+        item.template_id  = to_parent.id
+        item.checklist_id = nil
+      else
+        item.template_id  = nil
+        item.checklist_id = to_parent.id
+      end
 
-    if to_parent.kind_of?(Template)
-      to_parent.form_items.each do |form_item|
-        form_item.template_id  = to_parent.id
-        form_item.checklist_id = nil
-      end
-    elsif to_parent.kind_of?(Checklist)
-      to_parent.form_items.each do |form_item|
-        form_item.template_id  = nil
-        form_item.checklist_id = to_parent.id
-      end
+      to_parent.form_items << new_item
     end
   end
 
