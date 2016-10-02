@@ -14,7 +14,7 @@
 #
 
 class NumberField < FormItem
-  validates :value, numericality: true
+  validates :value, numericality: true, allow_blank: true
 
   def is_form?
     true
