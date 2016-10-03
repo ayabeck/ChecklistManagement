@@ -14,7 +14,7 @@
 
 class Template < ActiveRecord::Base
   has_many :checklists
-  has_many :form_items
+  has_many :form_items, dependent: :destroy
 
   validates :title,   presence: true
   validates :creator, presence: true
