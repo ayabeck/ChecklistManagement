@@ -33,9 +33,10 @@
     %dl.dl-horizontal
       %dt= t('activerecord.attributes.template.checklists_count')
       %dd= @template.checklists_count
-  .col-xs-12
-    .panel.panel-default
-      .panel-body= @template.description
+  - if @template.description.present?
+    .col-xs-12
+      .panel.panel-default
+        .panel-body= simple_format(@template.description)
 
 %hr.separator
 
