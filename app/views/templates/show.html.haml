@@ -36,7 +36,7 @@
   - if @template.description.present?
     .col-xs-12
       .panel.panel-default
-        .panel-body= simple_format(@template.description)
+        .panel-body= auto_link_text(@template.description)
 
 %hr.separator
 
