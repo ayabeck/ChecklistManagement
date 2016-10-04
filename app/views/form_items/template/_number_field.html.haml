@@ -5,6 +5,6 @@
       .form-group-template
         = label_tag "form[#{ form_item.id }]", form_item.label, class: 'control-label col-sm-4'
         .col-sm-8
-          = number_field_tag "form[#{ form_item.id }]", form_item.value, class: 'form-control', placeholder: '数値を入力してください'
+          = text_field_tag "form[#{ form_item.id }]", form_item.value, class: 'form-control', placeholder: '数値を入力してください'
   .media-right.media-middle.text-nowrap
     = option_link_to(form_item)
