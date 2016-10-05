@@ -32,6 +32,11 @@ class FormItem < ActiveRecord::Base
   scope :completed, -> { where.not(value: [nil, '']) }
   scope :extract_forms, -> { where(type: FORM_TYPES) }
 
+  def initialize(*)
+    super
+    self.order = FormItem.where(template_id: self.template_id).count(:id)
+  end
+
   # parent は Template と Checklist のみを想定
   def self.batch_copy(from_parent, to_parent)
     from_parent.form_items.each do |item|
@@ -52,11 +57,6 @@ class FormItem < ActiveRecord::Base
     TYPES.each_with_object([]) do |type, object|
       object << [I18n.t("activerecord.models.form_items.#{ type.underscore }"), type]
     end
-  end
-
-  def set_parent(template)
-    self.template_id = template.id
-    self.order       = FormItem.where(template_id: template.id).count(:id) + 1
   end
 
   def type_name

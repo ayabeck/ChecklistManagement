@@ -31,13 +31,12 @@ module ChecklistHelper
   def indented_help_text(item, form_items)
     help_text = content_tag(:div, auto_link_text(item.label), class: 'help-text')
 
-    if item.order == 1
-      content_tag(:div, help_text, class: 'col-xs-12')
-      return
+    if item.order == 0
+      return content_tag(:div, help_text, class: 'col-xs-12')
     end
 
     single, double = %w(Heading HelpText), %w(Checkbox)
-    case form_items[item.order - 2].type
+    case form_items[item.order - 1].type
       when *single
         content_tag(:div, help_text, class: 'col-xs-12')
       when *double

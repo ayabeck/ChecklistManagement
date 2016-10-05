@@ -15,8 +15,7 @@ class FormItemsController < ApplicationController
   # POST /form_items
   # POST /form_items.json
   def create
-    @form_item = FormItem.new(form_item_params)
-    @form_item.set_parent(@template)
+    @form_item = @template.form_items.build(form_item_params)
 
     respond_to do |format|
       if @form_item.save
