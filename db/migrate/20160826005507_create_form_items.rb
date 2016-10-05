@@ -3,8 +3,8 @@ class CreateFormItems < ActiveRecord::Migration
     create_table :form_items do |t|
       t.string  :type,        null: false
       t.integer :order,       null: false
-      t.string  :label,       null: false
-      t.string  :value
+      t.text    :label,       null: false
+      t.text    :value
       t.integer :template_id
       t.integer :checklist_id
 

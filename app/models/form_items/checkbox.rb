@@ -5,8 +5,8 @@
 #  id           :integer          not null, primary key
 #  type         :string           not null
 #  order        :integer          not null
-#  label        :string           not null
-#  value        :string
+#  label        :text             not null
+#  value        :text
 #  template_id  :integer
 #  checklist_id :integer
 #  created_at   :datetime         not null
