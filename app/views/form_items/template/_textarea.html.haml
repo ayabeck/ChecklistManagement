@@ -1,0 +1,10 @@
+-#フォーム[テキストエリア]
+.media
+  .media-body.media-middle
+    %form.form-horizontal
+      .form-group-template
+        = label_tag "form[#{ item.id }]", item.label, class: 'control-label col-sm-4'
+        .col-sm-8
+          = text_area_tag "form[#{ item.id }]", item.value, class: 'form-control', rows: 3, placeholder: 'テキストを入力してください'
+  .media-right.media-middle.text-nowrap
+    = option_link_to(item)

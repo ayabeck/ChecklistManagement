@@ -1,0 +1,5 @@
+-#フォーム[テキストエリア]
+.form-group-input
+  = label_tag "form[#{ item.id }]", item.label, class: 'control-label col-sm-4'
+  .col-sm-8
+    = text_area_tag "form[#{ item.id }]", item.value, class: 'form-control', rows: 3, placeholder: 'テキストを入力してください'

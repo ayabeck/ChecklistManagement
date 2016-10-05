@@ -8,6 +8,7 @@ ja:
         help_text: 補足文
         checkbox: チェックボックス
         number_field: 数値入力
+        textarea: テキストエリア
     attributes:
       template:
         id: テンプレート番号

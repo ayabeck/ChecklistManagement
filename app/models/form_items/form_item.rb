@@ -22,7 +22,7 @@ class FormItem < ActiveRecord::Base
 
   before_create :set_default
 
-  FORM_TYPES = %w(Checkbox NumberField)
+  FORM_TYPES = %w(Checkbox NumberField Textarea)
   TYPES = %w(Heading HelpText).concat(FORM_TYPES)
   def DEFAULT_VALUE
     nil

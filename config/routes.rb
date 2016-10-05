@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :headings,     except: [:index, :show], controller: :form_items, type: 'Heading'
     resources :help_texts,   except: [:index, :show], controller: :form_items, type: 'HelpText'
     resources :number_field, except: [:index, :show], controller: :form_items, type: 'NumberField'
+    resources :textarea,     except: [:index, :show], controller: :form_items, type: 'Textarea'
   end
   resources :checklists, only: [:index] do
     member do
