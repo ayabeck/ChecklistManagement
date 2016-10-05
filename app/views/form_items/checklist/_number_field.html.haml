@@ -1,5 +1,5 @@
 -#フォーム[数値]
 .form-group-input
-  = label_tag "form[#{ form_item.id }]", form_item.label, class: 'control-label col-sm-4'
+  = label_tag "form[#{ item.id }]", item.label, class: 'control-label col-sm-4'
   .col-sm-8
-    = text_field_tag "form[#{ form_item.id }]", form_item.value, class: 'form-control', placeholder: '数値を入力してください'
+    = text_field_tag "form[#{ item.id }]", item.value, class: 'form-control', placeholder: '数値を入力してください'

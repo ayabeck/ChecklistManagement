@@ -4,7 +4,7 @@
     .icon-checkbox
       .icon-checkbox-left
         %label
-          = check_box_tag "form[#{ form_item.id }]", 'true', form_item.checked?
+          = check_box_tag "form[#{ item.id }]", 'true', item.checked?
           %span
       .icon-checkbox-body
-        = form_item.label
+        = item.label

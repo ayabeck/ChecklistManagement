@@ -40,8 +40,8 @@
 
 %hr.separator
 = form_tag save_checklist_path, method: :put, class: 'form-horizontal' do
-  - @form_items.each do |form_item|
-    = render partial: "form_items/checklist/#{ form_item.class.name.underscore }", locals: { form_item: form_item }
+  - @form_items.each do |item|
+    = render partial: "form_items/checklist/#{ item.class.name.underscore }", locals: { item: item, form_items: @form_items }
   - if @checklist.forms.present?
     .text-right
       = submit_tag '保存', class: 'checklist-form-btn', disable_with: '送信中...'
