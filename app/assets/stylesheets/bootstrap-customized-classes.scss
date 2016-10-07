@@ -78,3 +78,28 @@
 .m-l-0 {
   margin-left:   0 !important;
 }
+
+// for print screen
+@media print {
+  a[href]:after {
+    content: none;
+  }
+  nav, footer {
+    display: none;
+  }
+  body {
+    padding-top: 15px;
+    -webkit-print-color-adjust: exact;
+  }
+  .progress-bar-success {
+    background-color: #000 !important;
+    color:            #FFF !important;
+  }
+  .btn {
+    border-color: #000 !important;
+  }
+  button.active {
+    background-color: #000 !important;
+    color:            #FFF !important;
+  }
+}
