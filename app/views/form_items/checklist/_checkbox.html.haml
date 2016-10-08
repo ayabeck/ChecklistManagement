@@ -1,10 +1,10 @@
 -#チェックボックス
-.form-group.m-l-0
-  .col-xs-12
-    .icon-checkbox
-      .icon-checkbox-left
+.form-group-input
+  .col-sm-offset-4.col-sm-8
+    .media.icon-checkbox
+      .media-left.media-middle.checkbox
         %label
           = check_box_tag "form[#{ item.id }]", 'true', item.checked?
           %span
-      .icon-checkbox-body
-        = item.label
+      .media-body.media-middle
+        = auto_link_text(item.label)

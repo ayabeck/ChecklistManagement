@@ -27,23 +27,4 @@ module ChecklistHelper
 = link_to '削除', form_item, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
     HAML
   end
-
-  def indented_help_text(item, form_items)
-    help_text = content_tag(:div, auto_link_text(item.label), class: 'help-text')
-
-    if item.order == 0
-      return content_tag(:div, help_text, class: 'col-xs-12')
-    end
-
-    single, double = %w(Heading HelpText), %w(Checkbox)
-    case form_items[item.order - 1].type
-      when *single
-        content_tag(:div, help_text, class: 'col-xs-12')
-      when *double
-        content_tag(:div, content_tag(:div, help_text, class: 'double-indent'), class: 'col-xs-12')
-      else
-        # 入力フォーム用の特別字下げ
-        content_tag(:div, help_text, class: 'col-sm-offset-4 col-sm-8')
-    end
-  end
 end

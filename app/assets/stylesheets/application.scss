@@ -41,12 +41,16 @@ th {
 }
 .form-group-template {
   @extend .form-group;
-  margin: 0 0 5px 0 !important;
+  margin: 0 !important;
+}
+.form-group-label {
+  @extend .form-group;
+  margin-top:    10px !important;
+  margin-bottom: 10px !important;
 }
 .form-group-input {
-  @extend .form-group;
-  margin-left:  0 !important;
-  margin-top: 5px !important;
+  @extend .form-group-label;
+  margin-left: 0 !important;
 }
 .required-text {
   margin-left: 5px;
@@ -66,11 +70,13 @@ th {
 }
 .heading {
   @extend .page-header;
-  margin-bottom: -6px;
+  margin-bottom: 0;
+  h4 {
+    margin-bottom: 5px;
+  }
 }
-.help-text {
-  margin-top:     3px;
-  margin-bottom: -3px;
+.help-text > p {
+  margin-bottom: 0;
 }
 .double-indent {
   margin-left: 38px;
@@ -78,36 +84,30 @@ th {
 
 // Define custom checkbox style
 .icon-checkbox {
-  @extend .media;
-  margin: 0 0 -10px -5px;
-  .icon-checkbox-body {
-    padding-top: 4px;
-  }
-}
-.icon-checkbox-left {
-  @extend .media-left;
-  @extend .media-middle;
-  @extend .checkbox;
-  & input[type='checkbox'] {
-    opacity:  0;
-    cursor:pointer;
-  }
-  & span {
-    margin-left: -.5em;
-    @extend .fa;
-    @extend .fa-2x;
-    @extend .fa-circle-o;
-    color: lighten($gray-base, 77.0%);
-    &:hover, &:active {
+  margin-top: 0 !important;
+  margin-left: -5px;
+  .checkbox {
+    padding-top: 0;
+    input[type='checkbox'] {
+      opacity: 0;
+      cursor: pointer;
+    }
+    span {
+      margin-left: -.5em;
+      @extend .fa;
+      @extend .fa-2x;
+      @extend .fa-circle-o;
+      color: lighten($gray-base, 77.0%);
+      &:hover, &:active {
+        color: $link-color;
+      }
+    }
+    input[type='checkbox']:checked ~ span {
+      @extend .fa-check-circle;
       color: $link-color;
     }
   }
-  & input[type='checkbox']:checked ~ span {
-    @extend .fa-check-circle;
-    color: $link-color;
+  .media-body > p {
+    margin-bottom: 0;
   }
-}
-.icon-checkbox-body {
-  @extend .media-body;
-  @extend .media-middle;
 }

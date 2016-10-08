@@ -1,12 +1,13 @@
 -#チェックボックス
 .media
   .media-body.media-middle
-    .col-xs-12
-      .icon-checkbox-left
-        %label
-          %input{ type: 'checkbox' }
-          %span
-      .icon-checkbox-body
-        = item.label
+    .col-sm-offset-4.col-sm-8
+      .media.icon-checkbox
+        .media-left.media-middle.checkbox
+          %label
+            %input{ type: 'checkbox' }
+            %span
+        .media-body.media-middle
+          = auto_link_text(item.label)
   .media-right.media-middle.text-nowrap
     = option_link_to(item)
