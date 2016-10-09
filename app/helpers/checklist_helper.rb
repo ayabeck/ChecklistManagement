@@ -27,4 +27,10 @@ module ChecklistHelper
 = link_to '削除', form_item, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
     HAML
   end
+
+  def link_to_template(template)
+    if template
+      link_to truncate(template.title, length: 12), template
+    end
+  end
 end
