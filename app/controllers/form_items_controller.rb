@@ -1,6 +1,6 @@
 class FormItemsController < ApplicationController
   before_action :set_form_item, only: [:edit, :update, :destroy]
-  before_action :set_template,  only: [:new, :create]
+  before_action :set_template,  only: [:new, :create, :reorder]
 
   # GET /form_items/new
   def new
@@ -52,6 +52,14 @@ class FormItemsController < ApplicationController
       format.html { redirect_to template, notice: 'Form item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # PUT /form_items/reorder
+  def reorder
+    params[:ids].each_with_index do |id, i|
+      FormItem.update(id, { order: i })
+    end
+    render nothing: true, status: :ok
   end
 
   private

@@ -81,7 +81,18 @@ th {
 .double-indent {
   margin-left: 38px;
 }
-
+.sorted-item {
+  margin-top: 0 !important;
+  padding: 10px 0;
+}
+.item-sortable > .sorted-item {
+  border-bottom: 1px solid $hr-border;
+  cursor: move;
+}
+.sortable-placeholder {
+  height: 2.5em;
+  border: dotted 2px $accent-color;
+}
 // Define custom checkbox style
 .icon-checkbox {
   margin-top: 0 !important;

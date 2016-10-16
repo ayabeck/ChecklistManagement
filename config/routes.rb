@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :templates, shallow:true do
     resources :checklists,   except: [:index]
-    resources :form_items,   except: [:index, :show]
+    resources :form_items,   except: [:index, :show] do
+      put 'reorder', on: :collection
+    end
     resources :checkboxes,   except: [:index, :show], controller: :form_items, type: 'Checkbox'
     resources :headings,     except: [:index, :show], controller: :form_items, type: 'Heading'
     resources :help_texts,   except: [:index, :show], controller: :form_items, type: 'HelpText'

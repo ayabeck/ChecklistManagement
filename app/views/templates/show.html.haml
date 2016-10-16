@@ -42,8 +42,8 @@
 
 .text-right
   = link_to '項目の追加', new_template_form_item_path(@template)
-%hr
+%hr.m-b-0
 
-- @form_items.each do |item|
-  = render partial: "form_items/template/#{ item.class.name.underscore }", locals: { item: item, form_items: @form_items }
-  %hr
+.item-sortable{ data: { update_url: reorder_template_form_items_path(@template) } }
+  - @form_items.each do |item|
+    = render partial: "form_items/template/#{ item.class.name.underscore }", locals: { item: item, form_items: @form_items }
