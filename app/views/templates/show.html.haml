@@ -15,24 +15,18 @@
           = link_to '削除', @template, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
 
 .row
-  .col-xs-12
+  .col-xs-6
     %dl.dl-horizontal
       %dt= t('activerecord.attributes.template.id')
       %dd= @template.id
-  .col-xs-6
-    %dl.dl-horizontal
-      %dt= t('activerecord.attributes.template.created_at')
-      %dd= @template.created_at
-      %dt.hidden-xs= t('activerecord.attributes.template.creator')
-      %dd.hidden-xs= @template.creator
-      %dt= t('activerecord.attributes.template.updated_at')
-      %dd= @template.updated_at
-      %dt.hidden-xs= t('activerecord.attributes.template.updater')
-      %dd.hidden-xs= @template.updater
-  .col-xs-6
-    %dl.dl-horizontal
       %dt= t('activerecord.attributes.template.checklists_count')
       %dd= @template.checklists_count
+  .col-xs-6
+    %dl.dl-horizontal
+      %dt= t('activerecord.attributes.template.updated_at')
+      %dd= @template.updated_at
+      %dt= t('activerecord.attributes.template.updater')
+      %dd= @template.updater
   - if @template.description.present?
     .col-xs-12
       .panel.panel-default
