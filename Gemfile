@@ -41,6 +41,8 @@ gem 'erb2haml'
 gem 'simple_form'
 # link in text
 gem 'rails_autolink'
+# For sortable item
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
