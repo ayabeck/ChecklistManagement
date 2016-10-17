@@ -45,4 +45,5 @@
 - klass = @sortable ? 'item-sortable' : ''
 %div{ class: klass, data: { update_url: reorder_template_form_items_path(@template) } }
   - @form_items.each do |item|
-    = render partial: "form_items/template/#{ item.class.name.underscore }", locals: { item: item, form_items: @form_items }
+    - locals = { item: item, form_items: @form_items, sortable: @sortable }
+    = render partial: "form_items/template/#{ item.class.name.underscore }", locals: locals

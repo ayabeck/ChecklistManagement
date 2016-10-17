@@ -87,6 +87,10 @@ th {
 }
 .item-sortable > .sorted-item {
   border-bottom: 2px solid $hr-border;
+}
+.draggable {
+  padding: 2px 10px;
+  color: $hr-border;
   cursor: move;
 }
 .sortable-placeholder {

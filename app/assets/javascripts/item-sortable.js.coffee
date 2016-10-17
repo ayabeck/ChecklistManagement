@@ -6,6 +6,7 @@ $ ->
     opacity: 0.7
     axis: 'y'
     placeholder: 'sortable-placeholder'
+    handle: '.draggable'
     start: (e, ui) ->
       ui.item.css 'background': '#EFEFEF'
     stop: (event, ui) ->
