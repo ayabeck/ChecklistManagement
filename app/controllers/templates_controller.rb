@@ -11,6 +11,7 @@ class TemplatesController < ApplicationController
   # GET /templates/1.json
   def show
     @form_items = FormItem.where(template_id: @template.id)
+    @sortable = params[:sortable]
   end
 
   # GET /templates/new
