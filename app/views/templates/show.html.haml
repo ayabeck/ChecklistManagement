@@ -34,16 +34,22 @@
 
 %hr.separator
 
-%ul.list-inline.text-right
-  - if @sortable
-    %li= link_to '並び替えOFF', @template
-  - else
-    %li= link_to '並び替えON', template_path(@template, sortable: true)
-  %li= link_to '項目の追加', new_template_form_item_path(@template)
-%hr.m-b-0
+- if @form_items.present?
+  %ul#sortitem.list-inline.text-right
+    - if @sortable
+      %li= link_to '並び替えOFF', template_path(@template, anchor: :sortitem)
+    - else
+      %li= link_to '並び替えON',  template_path(@template, anchor: :sortitem, sortable: true)
+  %hr
 
 - klass = @sortable ? 'item-sortable' : ''
 %div{ class: klass, data: { update_url: reorder_template_form_items_path(@template) } }
   - @form_items.each do |item|
     - locals = { item: item, form_items: @form_items, sortable: @sortable }
     = render partial: "form_items/template/#{ item.class.name.underscore }", locals: locals
+
+- unless @sortable
+  - if @form_items.present?
+    %hr
+  %ul#additem.list-inline.text-right
+    %li= link_to '項目の追加', new_template_form_item_path(@template)

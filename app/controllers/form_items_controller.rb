@@ -19,7 +19,7 @@ class FormItemsController < ApplicationController
 
     respond_to do |format|
       if @form_item.save
-        format.html { redirect_to @template, notice: 'Form item was successfully created.' }
+        format.html { redirect_to template_path(@template, anchor: :additem), notice: 'Form item was successfully created.' }
         format.json { render :show, status: :created, location: @form_item }
       else
         format.html { render :new }
@@ -34,7 +34,10 @@ class FormItemsController < ApplicationController
     @template = @form_item.template
     respond_to do |format|
       if @form_item.update(form_item_params)
-        format.html { redirect_to @template, notice: 'Form item was successfully updated.' }
+        format.html {
+          anchor = "itemid_#{ @form_item.id }"
+          redirect_to template_path(@template, anchor: anchor.to_sym), notice: 'Form item was successfully updated.'
+        }
         format.json { render :show, status: :ok, location: @form_item }
       else
         format.html { render :edit }
