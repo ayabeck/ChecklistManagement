@@ -4,11 +4,11 @@ Rails.application.routes.draw do
     resources :form_items,   except: [:index, :show] do
       put 'reorder', on: :collection
     end
-    resources :checkboxes,   except: [:index, :show], controller: :form_items, type: 'Checkbox'
-    resources :headings,     except: [:index, :show], controller: :form_items, type: 'Heading'
-    resources :help_texts,   except: [:index, :show], controller: :form_items, type: 'HelpText'
-    resources :number_field, except: [:index, :show], controller: :form_items, type: 'NumberField'
-    resources :textarea,     except: [:index, :show], controller: :form_items, type: 'Textarea'
+    resources :checkboxes,    except: [:index, :show], controller: :form_items, type: 'Checkbox'
+    resources :headings,      except: [:index, :show], controller: :form_items, type: 'Heading'
+    resources :help_texts,    except: [:index, :show], controller: :form_items, type: 'HelpText'
+    resources :number_fields, except: [:index, :show], controller: :form_items, type: 'NumberField'
+    resources :textareas,     except: [:index, :show], controller: :form_items, type: 'Textarea'
   end
   resources :checklists, only: [:index] do
     member do
