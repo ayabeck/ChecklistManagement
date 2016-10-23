@@ -16,9 +16,9 @@ ja:
         description: 説明
         checklists_count: 実施回数
         creator: 作成者
-        created_at: 作成日
+        created_at: 作成日時
         updater: 更新者
-        updated_at: 更新日
+        updated_at: 更新日時
       checklist:
         id: チェック番号
         title: タイトル
@@ -26,7 +26,7 @@ ja:
         start_at: 開始
         due_at: 期限
         submitter: 提出者
-        submit_at: 提出日
+        submit_at: 提出日時
       form_item:
         type: 種類
         label: ラベル

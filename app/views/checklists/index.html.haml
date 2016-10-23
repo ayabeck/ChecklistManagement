@@ -25,7 +25,7 @@
       - @checklists.each do |checklist|
         %tr
           %td= link_to truncate(checklist.title, length: 30), checklist
-          %td= checklist.start_at
-          %td= checklist.due_at
+          %td= checklist.start_at.to_s(:time)
+          %td= checklist.due_at.to_s(:time)
           %td= checklist.checker
           %td= status_or_progress(checklist)

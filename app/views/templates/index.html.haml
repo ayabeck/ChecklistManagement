@@ -23,6 +23,6 @@
         %tr
           %td= link_to template.title, template
           %td= truncate   template.description, length: 30
-          %td.text-right= template.checklists_count
-          %td= template.updated_at
+          %td= template.checklists_count
+          %td= template.updated_at.to_s(:date)
           %td= template.updater
