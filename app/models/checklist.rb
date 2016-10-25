@@ -20,6 +20,7 @@ class Checklist < ActiveRecord::Base
   has_many :form_items, dependent: :destroy
 
   validates :title, presence: true
+  validate  :validate_start_at
 
   def init(parent)
     self.title    = parent.title if parent.kind_of?(Template)
@@ -44,4 +45,11 @@ class Checklist < ActiveRecord::Base
         progression_rate: (self.forms.completed.count.quo(self.forms.size) * 100).round
     )
   end
+
+  private
+    def validate_start_at
+      if self.start_at && self.due_at
+        errors.add(:start_at, :validate_start_at) unless (self.start_at < self.due_at)
+      end
+    end
 end

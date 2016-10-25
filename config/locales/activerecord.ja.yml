@@ -23,7 +23,7 @@ ja:
         id: チェック番号
         title: タイトル
         checker: 担当者
-        start_at: 開始
+        start_at: 開始日時
         due_at: 期限
         submitter: 提出者
         submit_at: 提出日時
@@ -32,3 +32,9 @@ ja:
         label: ラベル
       number_field:
         value: 数値入力フォーム
+    errors:
+      models:
+        checklist:
+          attributes:
+            start_at:
+              validate_start_at: は期限より前にして下さい。
