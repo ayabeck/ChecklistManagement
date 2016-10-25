@@ -17,7 +17,7 @@ class ChecklistsController < ApplicationController
   # GET /templates/1/checklists/new
   def new
     @checklist = Checklist.new
-    @checklist.title = @template.title
+    @checklist.init(@template)
   end
 
   # GET /checklists/1/edit
