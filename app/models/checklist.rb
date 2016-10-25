@@ -21,6 +21,12 @@ class Checklist < ActiveRecord::Base
 
   validates :title, presence: true
 
+  def initialize(*)
+    super
+    self.start_at = DateTime.now.beginning_of_hour + 1.hour
+    self.due_at   = self.start_at + 1.hour
+  end
+
   def forms
     self.form_items.extract_forms
   end
