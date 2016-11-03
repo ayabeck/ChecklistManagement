@@ -40,6 +40,13 @@ class Checklist < ActiveRecord::Base
     end
   end
 
+  def submitted!(submitter = nil)
+    self.update!(
+        submitter: submitter,
+        submit_at: DateTime.current
+    )
+  end
+
   def update_progression_rate!
     self.update!(
         progression_rate: (self.forms.completed.count.quo(self.forms.size) * 100).round

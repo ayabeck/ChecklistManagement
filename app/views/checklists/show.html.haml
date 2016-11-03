@@ -5,14 +5,16 @@
       %li.active 詳細
   .col-xs-5
     .text-right
-      = link_to '提出', '#', { role: 'button', class: 'btn btn-default' }
+      - if @checklist.submit_at.blank?
+        = link_to '提出', submit_checklist_path, { method: :put, role: 'button', class: 'btn btn-default' }
   .col-xs-12
     .page-header
       %h3
         = @checklist.title
-        %small
-          = link_to '編集', edit_checklist_path(@checklist)
-          = link_to '削除', @checklist, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
+        - if @checklist.submit_at.blank?
+          %small
+            = link_to '編集', edit_checklist_path(@checklist)
+            = link_to '削除', @checklist, method: :delete, data: { confirm: t('message.delete_confirm') }, class: 'delete-action'
 
 .row
   .col-xs-6
@@ -42,6 +44,6 @@
 = form_tag save_checklist_path, method: :put, class: 'form-horizontal' do
   - @form_items.each do |item|
     = render partial: "form_items/checklist/#{ item.class.name.underscore }", locals: { item: item, form_items: @form_items }
-  - if @checklist.forms.present?
+  - if @checklist.forms.present? && @checklist.submit_at.blank?
     .text-right
       = submit_tag '保存', class: 'checklist-form-btn', disable_with: '送信中...'

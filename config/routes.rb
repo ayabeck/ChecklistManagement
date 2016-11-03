@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
   resources :checklists, only: [:index] do
     member do
-      put   :save
-      patch :save
+      put :save
+      put :submit
     end
   end
 
