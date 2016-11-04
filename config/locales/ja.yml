@@ -204,3 +204,4 @@ ja:
     destroy: 削除
   message:
     delete_confirm: "削除してもよろしいですか？"
+    apply_confirm: "保存していない入力は破棄されます。よろしいですか？"

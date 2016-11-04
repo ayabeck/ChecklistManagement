@@ -5,10 +5,12 @@
       %li.active 詳細
   .col-xs-5
     .text-right
+      - html_options = { method: :put, role: 'button', class: 'btn btn-default' }
       - if @checklist.submit_at.blank?
-        = link_to '提出', submit_checklist_path, { method: :put, role: 'button', class: 'btn btn-default' }
+        - html_options["data"] = { confirm: t('message.apply_confirm') }
+        = link_to '提出', apply_checklist_path, html_options
       - else
-        = link_to '引き戻し', withdraw_checklist_path, { method: :put, role: 'button', class: 'btn btn-default' }
+        = link_to '引き戻し', withdraw_checklist_path, html_options
   .col-xs-12
     .page-header
       %h3

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :checklists, only: [:index] do
     member do
       put :save
-      put :submit
+      put :apply
       put :withdraw
     end
   end
