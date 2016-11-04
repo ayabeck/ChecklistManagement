@@ -1,5 +1,5 @@
 class ChecklistsController < ApplicationController
-  before_action :set_checklist, only: [:show, :edit, :update, :destroy, :save, :submit]
+  before_action :set_checklist, only: [:show, :edit, :update, :destroy, :save, :submit, :withdraw]
   before_action :set_template,  only: [:new, :create]
 
   # GET /checklists
@@ -97,6 +97,20 @@ class ChecklistsController < ApplicationController
     ActiveRecord::Base.transaction do
       @checklist.submitted!()
       redirect_to @checklist, notice: 'Checklist was successfully submitted.'
+    end
+  rescue => e
+    flash.now[:error] = e.message
+    render :show
+  end
+
+  # PUT /checklists/1/withdraw
+  def withdraw
+    # REST 等で意図的に実施しない限り実行されないので処理はひとまず頑張らない
+    return if @checklist.submit_at.blank?
+
+    ActiveRecord::Base.transaction do
+      @checklist.withdraw!
+      redirect_to @checklist, notice: 'Checklist was successfully withdrawn.'
     end
   rescue => e
     flash.now[:error] = e.message

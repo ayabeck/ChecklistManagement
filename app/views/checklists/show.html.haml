@@ -7,6 +7,8 @@
     .text-right
       - if @checklist.submit_at.blank?
         = link_to '提出', submit_checklist_path, { method: :put, role: 'button', class: 'btn btn-default' }
+      - else
+        = link_to '引き戻し', withdraw_checklist_path, { method: :put, role: 'button', class: 'btn btn-default' }
   .col-xs-12
     .page-header
       %h3

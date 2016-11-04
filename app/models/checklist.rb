@@ -40,6 +40,13 @@ class Checklist < ActiveRecord::Base
     end
   end
 
+  def withdraw!
+    self.update!(
+        submitter: nil,
+        submit_at: nil
+    )
+  end
+
   def submitted!(submitter = nil)
     self.update!(
         submitter: submitter,

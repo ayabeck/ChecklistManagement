@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       put :save
       put :submit
+      put :withdraw
     end
   end
 
